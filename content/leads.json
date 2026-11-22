@@ -1,0 +1,15 @@
+{
+  "pages": [
+    {
+      "slug": "web-design/austin",
+      "status": "draft",
+      "niche": "web design",
+      "city": "Austin",
+      "updated": "2026-10-09",
+      "title": "Web Design Leads in Austin, TX",
+      "description": "How to find and approach web design prospects in Austin, plus a repeatable local outreach workflow for freelancers and small studios.",
+      "uniqueInsight": "Lead with one concrete, verifiable improvement you can point to on the prospect's own site, such as a slow mobile load or a missing online booking step, instead of a generic redesign pitch. Check the page yourself before claiming a problem exists.",
+      "serviceAngle": "Offer a small, fixed-scope entry service, such as a mobile-speed or booking-flow fix, so the first yes is low-risk and easy to evaluate."
+    }
+  ]
+}

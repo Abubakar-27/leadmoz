@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  shadcn base palette + the Leadmoz brand ramp (warm orange).
+  Every component class in components/ reads HSL channels from here:
+  without these variables bg-background / text-muted-foreground etc.
+  would compile to nothing.
+*/
+@layer base {
+  :root {
+    --background: 30 33% 98%;
+    --foreground: 24 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+    --primary: 27 96% 61%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 15% 93%;
+    --secondary-foreground: 24 10% 12%;
+    --muted: 30 12% 94%;
+    --muted-foreground: 25 5% 42%;
+    --accent: 30 15% 93%;
+    --accent-foreground: 24 10% 12%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 27 10% 88%;
+    --input: 27 10% 88%;
+    --ring: 27 96% 61%;
+    --radius: 0.75rem;
+    --brand: 27 96% 61%;
+    --brand-foreground: 31 97% 72%;
+  }
+
+  .dark {
+    --background: 24 12% 7%;
+    --foreground: 30 10% 95%;
+    --card: 24 10% 9%;
+    --card-foreground: 30 10% 95%;
+    --popover: 24 10% 9%;
+    --popover-foreground: 30 10% 95%;
+    --primary: 27 96% 61%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 25 8% 15%;
+    --secondary-foreground: 30 10% 92%;
+    --muted: 25 8% 15%;
+    --muted-foreground: 30 6% 62%;
+    --accent: 25 8% 16%;
+    --accent-foreground: 30 10% 92%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 25 8% 18%;
+    --input: 25 8% 18%;
+    --ring: 27 96% 61%;
+    --brand: 31 97% 72%;
+    --brand-foreground: 27 96% 61%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* Staggered entrance timing used by the hero (delay-100 … delay-1000). */
+@layer utilities {
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  .delay-700 {
+    animation-delay: 700ms;
+  }
+  .delay-1000 {
+    animation-delay: 1000ms;
+  }
+
+  /* Hero bottom fade: content falls into the page background. */
+  .fade-bottom {
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  /* Hero content rail (wider than Tailwind's default container). */
+  .max-w-container {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 1400px;
+  }
+
+  /* Display font stack for hero headings (--font-display set in _app.js). */
+  .font-display {
+    font-family: var(--font-display), system-ui, sans-serif;
+  }
+}

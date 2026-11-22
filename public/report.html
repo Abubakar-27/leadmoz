@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GBFSBH01NN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GBFSBH01NN');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Audit Report — Leadmoz</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Shareable website audit report with verifiable findings." />
+  <style>body{font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#0b0f14;color:#e6edf3}header{padding:32px 20px 0;text-align:center}main{max-width:880px;margin:0 auto;padding:0 20px 60px}h1{font-size:32px;margin:0 0 8px}.card{background:#121821;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;box-shadow:0 10px 80px -40px rgba(96,165,250,.6)}.weakness{background:#0f1622;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;margin:12px 0}.badge{display:inline-block;padding:4px 8px;border-radius:999px;background:rgba(34,197,94,.15);color:#4ade80;font-size:12px;margin-left:8px}</style>
+</head>
+<body>
+  <header><h1>Website Audit Report</h1><p id="url" style="color:#9fb3c8"></p></header>
+  <main><div class="card"><div id="list"></div></div></main>
+  <script>
+    async function load(){const m=location.pathname.match(/\/reports\/(.+)$/);if(!m)return;const t=m[1];const res=await fetch(`/api/reports/${t}`);if(!res.ok){document.body.innerHTML='<main style="padding:60px;text-align:center">Report not found or expired</main>';return;}const j=await res.json();document.getElementById('url').textContent=j.url;const l=document.getElementById('list');const hasV=(j.weaknesses||[]).some(w=>w.evidence==='verified');if(hasV){const b=document.createElement('span');b.className='badge';b.textContent='Verified Faults Found';document.querySelector('h1').after(b);} (j.weaknesses||[]).forEach(w=>{const d=document.createElement('div');d.className='weakness';d.innerHTML=`<strong>${w.id.replace(/_/g,' ')}</strong> <span style="opacity:.6;font-size:12px">${w.evidence}</span><p>${w.detail}</p>`;l.appendChild(d);});}
+    load();
+  </script>
+</body>
+</html>

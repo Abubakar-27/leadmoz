@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Leadmoz Blog: Local Lead Generation & Outreach Guides</title>
+  <link rel="icon" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <meta name="theme-color" content="#f7f4ef" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Guides on finding, verifying, and contacting local business leads — websites, email outreach, and prospecting, from the Leadmoz team." />
+  <link rel="canonical" href="https://leadmoz.com/blog" />
+  <link rel="alternate" type="application/rss+xml" title="Leadmoz Blog" href="https://leadmoz.com/rss.xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Leadmoz" />
+  <meta property="og:title" content="Leadmoz Blog: Local Lead Generation & Outreach Guides" />
+  <meta property="og:description" content="Guides on finding, verifying, and contacting local business leads — websites, email outreach, and prospecting, from the Leadmoz team." />
+  <meta property="og:url" content="https://leadmoz.com/blog" />
+  <meta property="og:image" content="https://leadmoz.com/og-leadmoz.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Leadmoz - AI lead research and outreach for local businesses" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://leadmoz.com/og-leadmoz.png" />
+  <meta name="twitter:image:alt" content="Leadmoz - AI lead research and outreach for local businesses" />
+  <meta name="twitter:title" content="Leadmoz Blog: Local Lead Generation & Outreach Guides" />
+  <meta name="twitter:description" content="Guides on finding, verifying, and contacting local business leads — websites, email outreach, and prospecting, from the Leadmoz team." />
+  <link rel="stylesheet" href="/nav.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Inter:wght@400;500;600&family=Fraunces:ital,wght@1,300;1,400;1,500&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --fog: #f7f4ef;
+      --paper: #fffdfb;
+      --ink: #1b1916;
+      --graphite: #4c4a44;
+      --stone: #6f6c66;
+      --orange: #f69251;
+      --rose: #ef5b6e;
+      --teal: #2aa79b;
+      --line: rgba(27, 25, 22, .10);
+      --line-soft: rgba(27, 25, 22, .06);
+      --display: "DM Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+      --font: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--fog);
+      color: var(--ink);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: -.01em;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 96px 24px 72px;
+    }
+
+    .blog-head { max-width: 720px; margin: 0 auto 56px; text-align: center; }
+    .blog-head .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--display); font-size: 12px; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--orange);
+    }
+    .blog-head .eyebrow i {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--orange);
+    }
+    .blog-head h1 {
+      font-family: var(--display);
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.05;
+      margin: 16px 0 14px;
+      letter-spacing: -.03em;
+    }
+    .blog-head h1 em {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 400; font-style: italic; color: var(--orange);
+    }
+    .blog-head p { color: var(--stone); font-size: 17px; line-height: 1.6; margin: 0; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 26px;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line-soft);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(27, 25, 22, .04), 0 12px 32px -18px rgba(27, 25, 22, .18);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(27,25,22,.05), 0 30px 60px -30px rgba(27,25,22,.28); }
+    .card-cover {
+      position: relative;
+      display: block;
+      height: 190px;
+      background: linear-gradient(135deg, #fdeee2, #e7f4f0);
+      overflow: hidden;
+    }
+    .card-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .card-body { padding: 22px 24px 24px; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .tag {
+      font-size: 12px; font-weight: 600; color: #b14d12;
+      background: #fdeee2; border-radius: 999px; padding: 4px 10px;
+      font-family: var(--display); letter-spacing: .02em;
+    }
+    .card h2 { margin: 0 0 10px; font-family: var(--display); font-size: 21px; line-height: 1.25; letter-spacing: -.01em; }
+    .card-body > a:hover h2 { color: #c95a1a; }
+    .card p { margin: 0 0 16px; color: var(--stone); font-size: 14.5px; line-height: 1.55; }
+    .card .meta {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12.5px; color: var(--stone);
+    }
+    .card .meta b { color: var(--ink); font-weight: 600; }
+    .card .meta .dot { width: 3px; height: 3px; border-radius: 50%; background: #c9c4bb; }
+
+    .empty-state { text-align: center; padding: 60px 0; color: var(--stone); }
+
+    /* ---------- article ---------- */
+    .article { max-width: 740px; margin: 0 auto; }
+    .article-head { text-align: left; margin-bottom: 28px; }
+    .article-head .back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600; color: var(--stone);
+      margin-bottom: 20px;
+    }
+    .article-head .back:hover { color: var(--orange); }
+    .article-head .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .article-head h1 {
+      font-family: var(--display);
+      font-size: clamp(30px, 4.4vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -.028em;
+      margin: 0 0 16px;
+    }
+    .article-head .meta {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      color: var(--stone); font-size: 13.5px;
+    }
+    .article-head .meta b { color: var(--ink); }
+    .article-head .meta .dot { width: 3px; height: 3px; border-radius: 50%; background: #c9c4bb; }
+    .article-cover {
+      margin: 6px 0 30px; border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--line-soft);
+    }
+    .article-cover img { width: 100%; display: block; max-height: 420px; object-fit: cover; }
+    .article-body { color: #33302a; font-size: 17px; line-height: 1.72; }
+    .article-body h2 {
+      font-family: var(--display);
+      font-size: 25px; line-height: 1.25;
+      margin: 34px 0 12px; letter-spacing: -.015em; color: var(--ink);
+    }
+    .article-body p { margin: 0 0 18px; }
+    .article-body figure { margin: 26px 0; }
+    .article-body figure img {
+      width: 100%; border-radius: 14px; display: block;
+      border: 1px solid var(--line-soft);
+    }
+    .article-body figure figcaption { font-size: 13px; color: var(--stone); margin-top: 8px; text-align: center; }
+    .article-cta { margin-top: 40px; padding: 26px; background: var(--ink); color: #fff; border-radius: 16px; text-align: center; }
+    .article-cta h3 { font-family: var(--display); margin: 0 0 8px; font-size: 20px; }
+    .article-cta p { margin: 0 0 16px; color: rgba(255,255,255,.75); font-size: 14.5px; }
+    .article-cta .btn {
+      display: inline-block; background: var(--orange); color: #1b1916;
+      font-family: var(--display); font-weight: 700; font-size: 14px;
+      padding: 12px 22px; border-radius: 10px;
+    }
+
+    .article-body h3 {
+      font-family: var(--display);
+      font-size: 19.5px; line-height: 1.3;
+      margin: 26px 0 10px; letter-spacing: -.01em; color: var(--ink);
+    }
+    .article-body ul { margin: 0 0 18px; padding-left: 22px; }
+    .article-body li { margin: 0 0 8px; }
+    .article-body strong { color: var(--ink); }
+    .article-body a { color: #c95a1a; text-decoration: underline; text-underline-offset: 2px; }
+    .article-body hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+
+    /* scoped (blog-*) table styles so they cannot leak to other pages */
+    .blog-table-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--line-soft); border-radius: 14px; }
+    .blog-table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 14.5px; }
+    .blog-table th, .blog-table td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+    .blog-table thead th { background: var(--fog); font-family: var(--display); font-weight: 600; color: var(--ink); }
+    .blog-table tbody tr:last-child td { border-bottom: 0; }
+
+    .foot-note { text-align: center; margin-top: 56px; color: var(--stone); font-size: 13.5px; }
+    .foot-note a { color: var(--orange); font-weight: 600; }
+
+    @media (max-width: 640px) {
+      .page { padding: 84px 18px 56px; }
+    }
+  </style>
+</head>
+<body data-page="blog">
+  <a class="skip-link" href="#blogRoot">Skip to content</a>
+
+  <!-- shared top nav is injected by nav.js -->
+
+  <main class="page" id="blogRoot">
+    <noscript>
+      <div class="blog-head">
+        <span class="eyebrow"><i></i>Blog</span>
+        <h1>Ideas for finding real clients.</h1>
+        <p>Guides on local lead discovery, outreach, and turning a cold list into signed work.</p>
+      </div>
+    </noscript>
+    <div class="empty-state">Loading…</div>
+  </main>
+
+  <script>
+    (function () {
+      var ROOT = document.getElementById("blogRoot");
+
+      function esc(value) {
+        return String(value == null ? "" : value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function sanitizeUrl(u) {
+        var s = String(u == null ? "" : u).trim();
+        if (/^https?:\/\//i.test(s) || /^\//.test(s) || /^mailto:/i.test(s) || /^#/.test(s)) return s;
+        return null;
+      }
+
+      function inlineMd(raw) {
+        var t = esc(raw);
+        t = t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function (_, label, url) {
+          var safe = sanitizeUrl(url);
+          return safe ? '<a href="' + safe + '">' + label + "</a>" : label;
+        });
+        t = t.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+        t = t.replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g, "$1<em>$2</em>");
+        return t;
+      }
+
+      function plainText(s) {
+        return String(s == null ? "" : s)
+          .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+          .replace(/\*\*/g, "")
+          .replace(/\*/g, "")
+          .trim();
+      }
+
+      function splitRow(row) {
+        var s = String(row || "").trim();
+        if (s.charAt(0) === "|") s = s.slice(1);
+        if (s.charAt(s.length - 1) === "|") s = s.slice(0, -1);
+        return s.split("|").map(function (c) { return c.trim(); });
+      }
+
+      function tableHtml(header, body) {
+        return '<div class="blog-table-wrap"><table class="blog-table"><thead><tr>' +
+          header.map(function (c) { return "<th>" + inlineMd(c) + "</th>"; }).join("") +
+          "</tr></thead><tbody>" +
+          body.map(function (r) {
+            return "<tr>" + r.map(function (c) { return "<td>" + inlineMd(c) + "</td>"; }).join("") + "</tr>";
+          }).join("") +
+          "</tbody></table></div>";
+      }
+
+      function renderMarkdown(md) {
+        var faqs = [];
+        var lines = String(md == null ? "" : md).replace(/\r\n?/g, "\n").split("\n");
+        var out = [];
+        var i = 0;
+        var inFaq = false;
+        var curQ = null;
+        var curA = [];
+
+        function flushFaq() {
+          if (curQ) { faqs.push({ q: plainText(curQ), a: plainText(curA.join(" ").trim()) }); curQ = null; curA = []; }
+        }
+
+        while (i < lines.length) {
+          var t = lines[i].trim();
+          if (t === "") { i++; continue; }
+
+          if (/^\|.*\|$/.test(t) && i + 1 < lines.length && /^\|[\s:|-]+\|$/.test(lines[i + 1].trim())) {
+            var header = splitRow(t);
+            i += 2;
+            var rows = [];
+            while (i < lines.length && /^\|.*\|$/.test(lines[i].trim())) { rows.push(splitRow(lines[i].trim())); i++; }
+            out.push(tableHtml(header, rows));
+            continue;
+          }
+
+          if (/^-{3,}$/.test(t)) { out.push("<hr>"); i++; continue; }
+
+          var hm = t.match(/^(#{1,6})\s+(.*)$/);
+          if (hm) {
+            var level = hm[1].length;
+            var htext = hm[2];
+            if (level === 2) { flushFaq(); inFaq = /^frequently asked questions$/i.test(htext.trim()); }
+            if (level === 3 && inFaq) { flushFaq(); curQ = htext; }
+            var tag = "h" + Math.min(Math.max(level, 2), 6);
+            out.push("<" + tag + ">" + inlineMd(htext) + "</" + tag + ">");
+            i++;
+            continue;
+          }
+
+          if (/^[*-]\s+/.test(t)) {
+            var items = [];
+            while (i < lines.length && /^[*-]\s+/.test(lines[i].trim())) {
+              items.push("<li>" + inlineMd(lines[i].trim().replace(/^[*-]\s+/, "")) + "</li>");
+              i++;
+            }
+            out.push("<ul>" + items.join("") + "</ul>");
+            continue;
+          }
+
+          var para = [];
+          while (i < lines.length) {
+            var tk = lines[i].trim();
+            if (tk === "" || /^(#{1,6})\s/.test(tk) || /^[*-]\s/.test(tk) || /^-{3,}$/.test(tk) || /^\|.*\|$/.test(tk)) break;
+            para.push(tk);
+            i++;
+          }
+          if (inFaq && curQ) curA.push(para.join(" "));
+          out.push("<p>" + inlineMd(para.join(" ")) + "</p>");
+        }
+        flushFaq();
+        return { html: out.join("\n"), faqs: faqs };
+      }
+
+      function fmtDate(iso) {
+        if (!iso) return "";
+        var d = new Date(iso);
+        if (isNaN(d.getTime())) return "";
+        return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+      }
+
+      function tagChips(tags, size) {
+        var cap = Number(size) || 3;
+        var shown = (tags || []).slice(0, cap);
+        return shown.map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("");
+      }
+
+      function card(post) {
+        return (
+          '<article class="card">' +
+            (post.coverImage
+              ? '<a class="card-cover" href="/blog/' + esc(post.slug) + '"><img src="' + esc(post.coverImage) + '" alt="' + esc(post.coverAlt || post.title) + '" loading="lazy" decoding="async" /></a>'
+              : '<a class="card-cover" href="/blog/' + esc(post.slug) + '"></a>') +
+            '<div class="card-body">' +
+              '<div class="card-tags">' + tagChips(post.tags, 4) + "</div>" +
+              '<a href="/blog/' + esc(post.slug) + '"><h2>' + esc(post.title) + "</h2></a>" +
+              (post.excerpt ? "<p>" + esc(post.excerpt) + "</p>" : "") +
+              '<div class="meta"><b>' + esc(post.author || "Leadmoz") + "</b>" +
+                (post.publishedAt ? '<span class="dot"></span><span>' + esc(fmtDate(post.publishedAt)) + "</span>" : "") +
+              "</div>" +
+            "</div>" +
+          "</article>"
+        );
+      }
+
+      function renderList(posts) {
+        if (!posts || !posts.length) {
+          ROOT.innerHTML = '<div class="empty-state"><strong>No articles yet.</strong><br />Check back soon.</div>';
+          return;
+        }
+        ROOT.innerHTML =
+          '<div class="blog-head">' +
+            '<span class="eyebrow"><i></i>Blog</span>' +
+            "<h1>Ideas for finding real <em>clients.</em></h1>" +
+            "<p>Guides on local lead discovery, outreach, and turning a cold list into signed work.</p>" +
+          "</div>" +
+          '<div class="cards">' + posts.map(card).join("") + "</div>" +
+          '<div class="foot-note"><a href="/">← Back to Leadmoz</a></div>';
+      }
+
+      function setArticleSeo(post, faqs) {
+        var base = "https://leadmoz.com";
+        var url = base + "/blog/" + encodeURIComponent(post.slug) + "/";
+        var title = post.title + " — Leadmoz";
+        var desc = post.metaDescription || post.excerpt || "";
+
+        document.title = title;
+
+        function setMeta(attr, name, content) {
+          var el = document.querySelector("meta[" + attr + '="' + name + '"]');
+          if (!el) {
+            el = document.createElement("meta");
+            el.setAttribute(attr, name);
+            document.head.appendChild(el);
+          }
+          el.setAttribute("content", content);
+        }
+
+        setMeta("name", "description", desc);
+        setMeta("property", "og:type", "article");
+        setMeta("property", "og:title", title);
+        setMeta("property", "og:description", desc);
+        var shareImage = post.coverImage
+          ? (post.coverImage.indexOf("http") === 0 ? post.coverImage : base + post.coverImage)
+          : base + "/og-leadmoz.png";
+        setMeta("property", "og:url", url);
+        setMeta("property", "og:image", shareImage);
+        setMeta("name", "twitter:image", shareImage);
+        setMeta("name", "twitter:title", title);
+        setMeta("name", "twitter:description", desc);
+
+        var can = document.querySelector('link[rel="canonical"]');
+        if (!can) { can = document.createElement("link"); can.setAttribute("rel", "canonical"); document.head.appendChild(can); }
+        can.setAttribute("href", url);
+
+        function injectJsonLd(id, obj) {
+          var old = document.getElementById(id);
+          if (old && old.parentNode) old.parentNode.removeChild(old);
+          var s = document.createElement("script");
+          s.type = "application/ld+json";
+          s.id = id;
+          s.text = JSON.stringify(obj);
+          document.head.appendChild(s);
+        }
+
+        var article = {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "description": desc,
+          "author": { "@type": "Person", "name": post.author || "Leadmoz" },
+          "publisher": { "@type": "Organization", "name": "Leadmoz", "logo": { "@type": "ImageObject", "url": base + "/leadmoz-logo.png" } },
+          "datePublished": post.publishedAt || post.createdAt || "",
+          "dateModified": post.updatedAt || post.publishedAt || post.createdAt || "",
+          "mainEntityOfPage": { "@type": "WebPage", "@id": url },
+          "url": url
+        };
+        if (post.coverImage) {
+          article.image = post.coverImage.indexOf("http") === 0 ? post.coverImage : base + post.coverImage;
+        }
+        injectJsonLd("blog-article-jsonld", article);
+
+        if (faqs && faqs.length) {
+          injectJsonLd("blog-faq-jsonld", {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(function (f) {
+              return { "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } };
+            })
+          });
+        }
+      }
+
+      function renderArticle(post) {
+        var mdForFaq = (post.blocks || []).map(function (b) {
+          if (b.type === "image") return "";
+          if (b.type === "heading") return "## " + b.text;
+          return b.text;
+        }).join("\n\n");
+        var parsed = renderMarkdown(mdForFaq);
+
+        var bodyHtml = "";
+        var buf = [];
+        function flush() { if (buf.length) { bodyHtml += renderMarkdown(buf.join("\n\n")).html; buf = []; } }
+        (post.blocks || []).forEach(function (b) {
+          if (b.type === "image") {
+            flush();
+            bodyHtml += '<figure><img src="' + esc(b.src) + '" alt="' + esc(b.alt || post.title) + '" loading="lazy" decoding="async" />' +
+              (b.alt ? "<figcaption>" + esc(b.alt) + "</figcaption>" : "") + "</figure>";
+          } else if (b.type === "heading") {
+            buf.push("## " + b.text);
+          } else {
+            buf.push(b.text);
+          }
+        });
+        flush();
+
+        setArticleSeo(post, parsed.faqs);
+
+        ROOT.innerHTML =
+          '<article class="article">' +
+            '<div class="article-head">' +
+              '<a class="back" href="/blog">← All articles</a>' +
+              '<div class="tags">' + tagChips(post.tags, 10) + "</div>" +
+              "<h1>" + esc(post.title) + "</h1>" +
+              '<div class="meta">' +
+                (post.author ? "<b>" + esc(post.author) + "</b><span class=\"dot\"></span>" : "") +
+                (post.publishedAt ? "<span>" + esc(fmtDate(post.publishedAt)) + "</span>" : "") +
+              "</div>" +
+            "</div>" +
+            (post.coverImage
+              ? '<div class="article-cover"><img src="' + esc(post.coverImage) + '" alt="' + esc(post.coverAlt || post.title) + '" /></div>'
+              : "") +
+            '<div class="article-body">' + bodyHtml + "</div>" +
+            '<div class="article-cta">' +
+              "<h3>Find clients like these today.</h3>" +
+              "<p>Search any niche and location, verify every contact, and start outreach in minutes.</p>" +
+              '<a class="btn" href="/auth?plan=free">Start free</a>' +
+            "</div>" +
+          "</article>";
+      }
+
+      function load() {
+        var slugMatch = (window.location.pathname || "").match(/^\/blog\/([^/]+)\/?$/);
+
+        if (slugMatch) {
+          fetch("/api/blog/" + encodeURIComponent(slugMatch[1]), { headers: { Accept: "application/json" } })
+            .then(function (res) {
+              if (!res.ok) throw new Error("not found");
+              return res.json();
+            })
+            .then(function (json) {
+              renderArticle(json.post);
+            })
+            .catch(function () {
+              ROOT.innerHTML = '<div class="empty-state"><strong>Article not found.</strong><br /><a href="/blog" style="color:#f69251">Browse the blog instead</a></div>';
+            });
+          return;
+        }
+
+        fetch("/api/blog", { headers: { Accept: "application/json" } })
+          .then(function (res) { return res.json(); })
+          .then(function (json) { renderList(json.posts); })
+          .catch(function () {
+            ROOT.innerHTML = '<div class="empty-state"><strong>Could not load articles.</strong></div>';
+          });
+      }
+
+      load();
+    })();
+  </script>
+
+  <script src="/nav.js"></script>
+</body>
+</html>

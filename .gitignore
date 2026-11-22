@@ -1,0 +1,32 @@
+# Dependencies / build output
+node_modules/
+.next/
+out/
+dist/
+build/
+
+# Secrets — never commit real credentials
+.env
+.env.*
+!.env.example
+!.env.gmaps.example
+
+# Runtime state: leads, users, sessions, caches
+data/
+
+# Logs, pids, backups, scratch files
+*.log
+*.pid
+*.bak
+*.bak-*
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+*.zip
+
+# One-off local probes / experiments
+_*.mjs
+_*.js
+_*.py
+_*.sh

@@ -1,0 +1,4057 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GBFSBH01NN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GBFSBH01NN');
+</script>
+  <link rel="stylesheet" href="/nav.css">
+  <meta charset="utf-8" />
+  <title>Admin — Leadmoz</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <meta name="theme-color" content="#f7f4ef" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Inter:wght@400;500;600&family=Fraunces:ital,wght@1,300;1,400;1,500&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* =========================================================
+       LEAD IO — ADMIN COMMAND CENTER (complete redesign)
+    ========================================================= */
+    :root {
+      --fog: #f7f4ef;
+      --paper: #fffdfb;
+      --ink: #1b1916;
+      --graphite: #4c4a44;
+      --stone: #6f6c66;
+      --pebble: #9a968e;
+      --lead: #16130f;
+      --orange: #f69251;
+      --rose: #ef5b6e;
+      --teal: #2aa79b;
+      --blue: #5b8dee;
+      --green: #0f766e;
+      --green-bg: #e7f4f0;
+      --amber: #a16207;
+      --amber-bg: #fbf3e0;
+      --red: #b42318;
+      --red-bg: #fdeae6;
+      --blue-bg: #eaf1fd;
+      --line: rgba(27, 25, 22, .10);
+      --line-soft: rgba(27, 25, 22, .06);
+      --shadow-sm: 0 1px 2px rgba(27, 25, 22, .04), 0 12px 32px -18px rgba(27, 25, 22, .18);
+      --shadow-lg: 0 2px 4px rgba(27, 25, 22, .05), 0 40px 90px -42px rgba(27, 25, 22, .30);
+      --display: "DM Sans", "Satoshi", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--fog);
+      color: var(--ink);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: -.01em;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ::selection {
+      background: rgba(246, 146, 81, .28);
+    }
+
+    /* ---------- ambient stage ---------- */
+    .ambient {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(900px 540px at 8% -6%, rgba(246, 146, 81, .15), transparent 60%),
+        radial-gradient(820px 520px at 96% 2%, rgba(43, 167, 155, .09), transparent 55%),
+        radial-gradient(720px 560px at 70% 112%, rgba(91, 141, 238, .06), transparent 60%),
+        radial-gradient(rgba(27, 25, 22, .04) 1px, transparent 1.4px);
+      background-size: auto, auto, auto, 27px 27px;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: .5;
+      pointer-events: none;
+      z-index: 0;
+      animation: drift 16s ease-in-out infinite alternate;
+    }
+
+    .orb.a {
+      width: 340px;
+      height: 340px;
+      right: -80px;
+      top: 12%;
+      background: radial-gradient(circle, rgba(239, 91, 110, .20), transparent 70%);
+    }
+
+    .orb.b {
+      width: 280px;
+      height: 280px;
+      left: -70px;
+      bottom: -40px;
+      background: radial-gradient(circle, rgba(251, 146, 60, .16), transparent 70%);
+      animation-delay: -8s;
+    }
+
+    @keyframes drift {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to { transform: translate3d(24px, -18px, 0) scale(1.06); }
+    }
+
+    /* ---------- top bar ---------- */
+    .topbar {
+      position: relative;
+      z-index: 1;
+      width: min(1200px, 100%);
+      margin: 0 auto;
+      padding: 20px 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .brand-mark {
+      width: 27px;
+      height: 27px;
+      display: inline-block;
+      background: linear-gradient(135deg, #fb923c 0%, #ef5b6e 130%);
+      clip-path: polygon(0 0, 72% 0, 100% 100%, 0 100%);
+      box-shadow: 0 6px 18px -6px rgba(239, 91, 110, .6);
+    }
+
+    .brand b {
+      font-family: var(--display);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -.04em;
+    }
+
+    .top-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      background: rgba(255, 253, 251, .72);
+      color: var(--stone);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Top-bar shortcut: the campaigns card sits at the very bottom of a long
+       page, so without a jump link it is easy to miss entirely. */
+    .top-jump {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 13px;
+      border: 1px solid rgba(239, 91, 110, .35);
+      border-radius: 100px;
+      background: rgba(255, 253, 251, .9);
+      color: #c2415a;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .16s ease, border-color .16s ease, transform .16s ease;
+    }
+
+    .top-jump:hover {
+      background: #fff;
+      border-color: rgba(239, 91, 110, .6);
+      transform: translateY(-1px);
+    }
+
+    .top-pill i {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex: none;
+      background: var(--teal);
+      animation: livePing 2s ease-in-out infinite;
+    }
+
+    @keyframes livePing {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(42, 167, 155, .45); }
+      50% { box-shadow: 0 0 0 5px rgba(42, 167, 155, 0); }
+    }
+
+    /* ---------- hero ---------- */
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      width: 100%;
+    }
+
+    .page-hero {
+      width: min(1200px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 42px 0 26px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: end;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      width: max-content;
+      max-width: 100%;
+      padding: 7px 13px;
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      background: rgba(255, 255, 255, .8);
+      color: var(--graphite);
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex: none;
+      background: var(--orange);
+      animation: kickerPulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes kickerPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(246, 146, 81, .35); }
+      50% { box-shadow: 0 0 0 6px rgba(246, 146, 81, 0); }
+    }
+
+    .page-hero h1 {
+      margin: 0;
+      max-width: 780px;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: clamp(40px, 5vw, 62px);
+      line-height: 1.05;
+      letter-spacing: -.045em;
+      color: var(--ink);
+    }
+
+    .page-hero h1 em {
+      font-family: "Fraunces", ui-serif, Georgia, serif;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: -.03em;
+      background: linear-gradient(128deg, #ef5b6e 8%, #f69251 72%, #e2a34d 110%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      padding-right: .03em;
+    }
+
+    .page-hero p {
+      margin: 16px 0 0;
+      max-width: 680px;
+      color: var(--stone);
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    /* ---------- buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 0 22px;
+      border: 0;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fb923c 0%, #ef5b6e 130%);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 14px 28px -12px rgba(239, 91, 110, .55), inset 0 1px 0 rgba(255, 255, 255, .25);
+      transition: transform .16s ease, box-shadow .2s ease, filter .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: saturate(1.08) brightness(1.03);
+      box-shadow: 0 18px 34px -14px rgba(239, 91, 110, .6), inset 0 1px 0 rgba(255, 255, 255, .25);
+    }
+
+    .btn:active {
+      transform: translateY(0) scale(.985);
+    }
+
+    .btn.secondary {
+      background: #fff;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      box-shadow: 0 1px 2px rgba(27, 25, 22, .04);
+    }
+
+    .btn.secondary:hover {
+      filter: none;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px -18px rgba(27, 25, 22, .22);
+    }
+
+    .btn.danger {
+      background: #fff;
+      color: var(--red);
+      border: 1px solid rgba(180, 35, 24, .28);
+      box-shadow: none;
+    }
+
+    /* ---------- layout ---------- */
+    .content {
+      width: min(1200px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 0 0 80px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .card {
+      background: rgba(255, 253, 251, .94);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    /* ---------- stat cards ---------- */
+    .stat-card {
+      padding: 22px;
+      min-height: 158px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(246, 146, 81, .45);
+      box-shadow: 0 2px 4px rgba(27, 25, 22, .05), 0 34px 70px -38px rgba(239, 91, 110, .38);
+    }
+
+    .stat-card:after {
+      content: "";
+      position: absolute;
+      right: -54px;
+      bottom: -66px;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(246, 146, 81, .18), rgba(246, 146, 81, 0) 70%);
+      pointer-events: none;
+    }
+
+    .stat-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-label {
+      color: var(--stone);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .stat-chip {
+      width: 34px;
+      height: 34px;
+      flex: none;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      color: var(--rose);
+      font-size: 15px;
+      font-weight: 600;
+      background: linear-gradient(135deg, rgba(251, 146, 60, .20), rgba(239, 91, 110, .14));
+    }
+
+    .stat-value {
+      margin-top: 18px;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 44px;
+      line-height: 1;
+      letter-spacing: -.05em;
+      color: var(--ink);
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-note {
+      margin-top: 8px;
+      color: var(--pebble);
+      font-size: 12.5px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-subnote {
+      margin-top: 3px;
+      color: var(--pebble);
+      font-size: 11.5px;
+      opacity: 0.75;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---------- main grid ---------- */
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 390px;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    /* ---------- cards ---------- */
+    .card-head {
+      padding: 24px 26px 20px;
+      border-bottom: 1px solid var(--line-soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .head-left {
+      min-width: 0;
+    }
+
+    .pill-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: max-content;
+      max-width: 100%;
+      padding: 6px 11px;
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      background: rgba(247, 244, 239, .8);
+      color: var(--graphite);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      margin-bottom: 13px;
+    }
+
+    .pill-label:before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    .card-head h2 {
+      margin: 0;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: clamp(26px, 2.8vw, 36px);
+      line-height: 1.12;
+      letter-spacing: -.045em;
+      color: var(--ink);
+    }
+
+    .card-head p {
+      margin: 9px 0 0;
+      color: var(--stone);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .card-body {
+      padding: 20px 26px 24px;
+    }
+
+    /* ---------- filters ---------- */
+    .search-row {
+      display: grid;
+      grid-template-columns: 1fr 170px;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    /* ---------- promo create form ---------- */
+    .promo-form {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(247, 244, 239, .5);
+    }
+    .promo-form-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: 12px;
+      align-items: end;
+    }
+    .promo-field {
+      display: grid;
+      gap: 6px;
+      min-width: 0;
+    }
+    .promo-field > label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+    .promo-field .split {
+      display: grid;
+      grid-template-columns: 100px minmax(0, 1fr);
+      gap: 10px;
+    }
+    .promo-form input,
+    .promo-form select {
+      min-height: 46px;
+      height: 46px;
+    }
+    .promo-cycles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .promo-cycle-chip {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 52px;
+      height: 38px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      background: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--stone);
+      cursor: pointer;
+      user-select: none;
+      transition: border-color .15s ease, background .15s ease, color .15s ease;
+    }
+    .promo-cycle-chip input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .promo-cycle-chip.active {
+      border-color: var(--orange);
+      background: var(--orange);
+      color: #fff;
+    }
+    .promo-form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .promo-form-hint {
+      font-size: 12px;
+      color: var(--stone);
+    }
+    @media (max-width: 1000px) {
+      .promo-form-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .promo-form-grid { grid-template-columns: 1fr; }
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-width: 0;
+      min-height: 48px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      color: var(--ink);
+      padding: 0 14px;
+      outline: none;
+      font-size: 14.5px;
+      letter-spacing: -.01em;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .7), 0 1px 2px rgba(27, 25, 22, .03);
+      transition: border-color .18s ease, box-shadow .18s ease;
+    }
+
+    input::placeholder {
+      color: var(--pebble);
+    }
+
+    input:focus,
+    select:focus {
+      border-color: rgba(246, 146, 81, .6);
+      box-shadow: 0 0 0 4px rgba(246, 146, 81, .12);
+    }
+
+    /* ---------- tables ---------- */
+    .table-wrap {
+      width: 100%;
+      overflow: auto;
+    }
+
+    .table-wrap.table-scroll {
+      max-height: 520px;
+      overflow: auto;
+      overscroll-behavior: contain;
+    }
+
+    .table-wrap.table-scroll thead th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: rgba(255, 253, 251, .98);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 860px;
+    }
+
+    th {
+      text-align: left;
+      padding: 13px 12px;
+      color: var(--pebble);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+      background: transparent;
+    }
+
+    td {
+      padding: 15px 12px;
+      border-bottom: 1px solid var(--line-soft);
+      vertical-align: middle;
+      color: var(--ink);
+      font-size: 13.5px;
+      line-height: 1.5;
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      transition: background .14s ease;
+    }
+
+    tbody tr:hover {
+      background: rgba(246, 146, 81, .045);
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .primary-text {
+      color: var(--ink);
+      font-weight: 600;
+      letter-spacing: -.02em;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    td:first-child .primary-text:before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex: none;
+      background: linear-gradient(135deg, #fb923c, #ef5b6e);
+    }
+
+    .muted {
+      color: var(--stone);
+    }
+
+    .small {
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    /* ---------- tags ---------- */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      width: max-content;
+      max-width: 100%;
+      border-radius: 100px;
+      padding: 5px 11px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--graphite);
+      white-space: nowrap;
+    }
+
+    .tag.ok {
+      background: var(--green-bg);
+      color: var(--green);
+      border-color: rgba(15, 118, 110, .22);
+    }
+
+    .tag.warn {
+      background: var(--amber-bg);
+      color: var(--amber);
+      border-color: rgba(161, 98, 7, .22);
+    }
+
+    .tag.red {
+      background: var(--red-bg);
+      color: var(--red);
+      border-color: rgba(180, 35, 24, .22);
+    }
+
+    .tag.blue {
+      background: var(--blue-bg);
+      color: var(--blue);
+      border-color: rgba(91, 141, 238, .25);
+    }
+
+    .tag.orange {
+      background: rgba(246, 146, 81, .12);
+      color: #b45309;
+      border-color: rgba(246, 146, 81, .32);
+    }
+
+    /* ---------- empty state ---------- */
+    .empty {
+      padding: 36px 20px;
+      text-align: center;
+      color: var(--stone);
+    }
+
+    .empty strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--display);
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      letter-spacing: -.03em;
+    }
+
+    /* ---------- error box ---------- */
+    .error-box {
+      display: none;
+      margin-bottom: 16px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(180, 35, 24, .25);
+      background: var(--red-bg);
+      color: var(--red);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    /* ---------- quota / plan controls ---------- */
+    .quota-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .quota-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      border: 1px solid var(--line-soft);
+      background: rgba(255, 255, 255, .7);
+      border-radius: 18px;
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    }
+
+    .quota-row:hover {
+      transform: translateY(-1px);
+      border-color: rgba(246, 146, 81, .35);
+      box-shadow: 0 14px 30px -20px rgba(239, 91, 110, .3);
+    }
+
+    .quota-title {
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -.015em;
+    }
+
+    .quota-desc {
+      margin-top: 4px;
+      color: var(--stone);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .quota-value {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 76px;
+      height: 34px;
+      padding: 0 12px;
+      border-radius: 100px;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 12.5px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .quota-value.q-free {
+      border-color: rgba(246, 146, 81, .5);
+      color: #b45309;
+      background: rgba(246, 146, 81, .10);
+    }
+
+    .quota-value.q-starter {
+      border-color: rgba(91, 141, 238, .5);
+      color: #3557a8;
+      background: var(--blue-bg);
+    }
+
+    .quota-value.q-pro {
+      border-color: rgba(143, 110, 240, .5);
+      color: #6b44c9;
+      background: rgba(143, 110, 240, .10);
+    }
+
+    .quota-value.q-admin {
+      border-color: var(--lead);
+      color: #fff;
+      background: var(--lead);
+    }
+
+    .quota-bar {
+      grid-column: 1 / -1;
+      height: 5px;
+      border-radius: 100px;
+      background: rgba(27, 25, 22, .07);
+      overflow: hidden;
+      margin-top: 2px;
+    }
+
+    .quota-bar i {
+      display: block;
+      height: 100%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, #fb923c, #ef5b6e);
+    }
+
+    .qbar-free i { width: 2%; }
+    .qbar-starter i { width: 30%; }
+    .qbar-pro i { width: 100%; }
+    .qbar-admin i { width: 100%; background: linear-gradient(90deg, #2aa79b, #4fd1c5); }
+
+    .notice {
+      margin-top: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(246, 146, 81, .30);
+      background: linear-gradient(135deg, rgba(251, 146, 60, .10), rgba(239, 91, 110, .08));
+      color: #5a3a22;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .notice:before {
+      content: "✦";
+      flex: none;
+      color: var(--orange);
+      font-size: 13px;
+    }
+
+    /* ---------- system status ---------- */
+    .admin-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .admin-item {
+      border: 1px solid var(--line-soft);
+      background: rgba(255, 255, 255, .7);
+      border-radius: 18px;
+      padding: 15px 16px;
+      transition: border-color .16s ease, transform .16s ease;
+    }
+
+    .admin-item:hover {
+      border-color: rgba(246, 146, 81, .35);
+      transform: translateY(-1px);
+    }
+
+    .admin-item-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .admin-item h3 {
+      margin: 0;
+      font-size: 14.5px;
+      font-weight: 600;
+      letter-spacing: -.02em;
+    }
+
+    .admin-item p {
+      margin: 0;
+      color: var(--stone);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* ---------- page foot ---------- */
+    .page-foot {
+      position: relative;
+      z-index: 1;
+      width: min(1200px, 100%);
+      margin: 0 auto;
+      padding: 8px 20px 30px;
+      color: var(--pebble);
+      font-size: 12px;
+      letter-spacing: -.01em;
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 1100px) {
+      .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      body {
+        padding-top: 70px;
+      }
+
+      .content,
+      .page-hero {
+        width: min(100% - 28px, 1200px);
+      }
+
+      .page-hero {
+        grid-template-columns: 1fr;
+        padding-top: 30px;
+        align-items: start;
+      }
+
+      .page-hero h1 {
+        font-size: clamp(36px, 8vw, 48px);
+      }
+
+      .hero-actions {
+        justify-content: flex-start;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .card-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .toolbar,
+      .toolbar .btn {
+        width: 100%;
+      }
+
+      .search-row {
+        grid-template-columns: 1fr;
+      }
+
+      .page-hero p {
+        font-size: 15.5px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar {
+        padding: 14px 14px 0;
+      }
+
+      .top-pill {
+        font-size: 0;
+        padding: 8px;
+      }
+
+      .top-pill i {
+        width: 8px;
+        height: 8px;
+        margin: 0;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-card {
+        min-height: 130px;
+      }
+
+      .card-body {
+        padding: 16px 16px 20px;
+      }
+
+      .card-head {
+        padding: 20px 16px 16px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .page-hero h1 {
+        font-size: 34px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .orb,
+      .top-pill i,
+      .hero-pill-dot {
+        animation: none !important;
+      }
+
+      .stat-card,
+      .btn,
+      .card,
+      .quota-row,
+      .admin-item,
+      input,
+      select {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body data-page="dashboard">
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="orb a" aria-hidden="true"></div>
+  <div class="orb b" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <i class="brand-mark" aria-hidden="true"></i>
+      <b>Leadmoz</b>
+    </div>
+    <div class="top-actions">
+      <button class="top-jump" type="button" onclick="jumpToCampaignsCard()">Email campaigns</button>
+      <div class="top-pill">
+        <i></i>
+        Super admin
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <style>
+      .blog-file { max-width: 150px; }
+      .blog-cover-preview { display: block; margin-top: 8px; max-height: 130px; border-radius: 10px; border: 1px solid var(--line, rgba(27,25,22,.1)); }
+      .blog-block { border: 1px solid var(--line, rgba(27,25,22,.1)); border-radius: 12px; padding: 12px; margin-bottom: 10px; background: #fffdfb; }
+      .blog-block-top { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+      .blog-block-top select { flex: 1; }
+      .blog-block .split { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+      .blog-block .split > input[type=text] { flex: 1; }
+      .blog-block textarea, .blog-block > input[type=text] {
+        width: 100%; border: 1px solid var(--line, rgba(27,25,22,.16)); border-radius: 9px;
+        padding: 9px 11px; font: inherit; font-size: 14px; background: #fff;
+      }
+      .blog-block-actions { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; }
+      .blog-block-preview { margin-top: 4px; max-height: 90px; border-radius: 8px; border: 1px solid var(--line, rgba(27,25,22,.08)); }
+      .visitors-scroll { overflow: auto; max-height: 320px; border: 1px solid var(--line, rgba(27,25,22,.1)); border-radius: 12px; }
+
+      /* ---------- email campaigns ---------- */
+      .ec-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 20px;
+        align-items: start;
+      }
+      @media (max-width: 980px) { .ec-grid { grid-template-columns: 1fr; } }
+
+      /* Grid/flex children default to min-width:auto, so the history table's
+         nowrap cells (409px of min-content) used to pin the whole grid at
+         448px. The card is overflow:hidden, so on narrow windows the section
+         was simply cut off on the right. Allowing the children to shrink lets
+         the table scroll inside its own wrapper instead. */
+      .ec-grid > * { min-width: 0; }
+      .ec-grid .stack > * { min-width: 0; }
+      .ec-panel { min-width: 0; }
+
+      .ec-panel {
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: rgba(247, 244, 239, .45);
+        padding: 18px;
+      }
+
+      .ec-panel-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .ec-panel-head h3 {
+        margin: 0;
+        font-family: var(--display);
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: -.02em;
+        color: var(--ink);
+      }
+
+      .ec-count {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--pebble);
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 100px;
+        padding: 4px 10px;
+      }
+
+      .ec-tpl {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: #fff;
+        padding: 12px 14px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+      }
+
+      .ec-tpl:hover {
+        transform: translateY(-1px);
+        border-color: rgba(246, 146, 81, .4);
+      }
+
+      .ec-tpl.active {
+        border-color: var(--orange);
+        box-shadow: 0 0 0 3px rgba(246, 146, 81, .12), var(--shadow-sm);
+        background: #fffdf9;
+      }
+
+      .ec-tpl-icon {
+        width: 34px;
+        height: 34px;
+        flex: none;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background: linear-gradient(135deg, rgba(251, 146, 60, .18), rgba(239, 91, 110, .12));
+        color: var(--rose);
+        font-size: 14px;
+        font-weight: 700;
+        font-family: var(--display);
+      }
+
+      .ec-tpl-meta { min-width: 0; flex: 1; }
+
+      .ec-tpl-name {
+        font-size: 13.5px;
+        font-weight: 600;
+        letter-spacing: -.015em;
+        color: var(--ink);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .ec-tpl-date { font-size: 11.5px; color: var(--pebble); margin-top: 2px; }
+
+      .ec-tpl-check {
+        width: 18px;
+        height: 18px;
+        flex: none;
+        border-radius: 50%;
+        border: 1.5px solid var(--line);
+        display: grid;
+        place-items: center;
+        color: transparent;
+        font-size: 10px;
+        font-weight: 700;
+      }
+
+      .ec-tpl.active .ec-tpl-check {
+        background: var(--orange);
+        border-color: var(--orange);
+        color: #fff;
+      }
+
+      .ec-divider {
+        height: 1px;
+        background: var(--line-soft);
+        margin: 16px 0;
+      }
+
+      .ec-field {
+        display: grid;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+
+      .ec-field > label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+        color: var(--stone);
+      }
+
+      .ec-field input,
+      .ec-field select,
+      .ec-field textarea { margin: 0; }
+
+      .ec-field textarea {
+        width: 100%;
+        min-height: 230px;
+        padding: 12px 14px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: #fff;
+        color: var(--ink);
+        font-family: inherit;
+        font-size: 13.5px;
+        line-height: 1.6;
+        resize: vertical;
+        outline: none;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, .7), 0 1px 2px rgba(27, 25, 22, .03);
+        transition: border-color .18s ease, box-shadow .18s ease;
+      }
+
+      .ec-field textarea:focus {
+        border-color: rgba(246, 146, 81, .6);
+        box-shadow: 0 0 0 4px rgba(246, 146, 81, .12);
+      }
+
+      .ec-hint {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11.5px;
+        color: var(--stone);
+        background: #fff;
+        border: 1px dashed rgba(27, 25, 22, .18);
+        border-radius: 100px;
+        padding: 5px 11px;
+        margin-bottom: 12px;
+      }
+
+      .ec-hint code {
+        font-size: 11px;
+        background: rgba(246, 146, 81, .12);
+        color: #b45309;
+        border-radius: 6px;
+        padding: 2px 6px;
+        font-weight: 600;
+      }
+
+      .ec-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .ec-msg {
+        font-size: 12.5px;
+        min-height: 18px;
+        margin-top: 8px;
+      }
+
+      .ec-send-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+        align-items: end;
+      }
+
+      .ec-cadence {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+        gap: 10px;
+        align-items: end;
+        padding: 14px;
+        margin-bottom: 14px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .ec-cadence-note {
+        display: block;
+        margin: -6px 0 14px;
+        font-size: 11.5px;
+        line-height: 1.55;
+        color: var(--stone);
+      }
+
+      .ec-cadence-note b { color: var(--ink); }
+
+      .card-head .btn.sm {
+        padding: 8px 14px;
+        font-size: 12.5px;
+        box-shadow: 0 8px 18px -10px rgba(239, 91, 110, .5);
+      }
+
+      /* Keep the SMTP pill and the "+ New broadcast" button on one line in the
+         card header instead of letting the toolbar squeeze them into a stack. */
+      #emailCampaignsCard .card-head .toolbar { flex: 0 0 auto; }
+
+      @media (max-width: 700px) {
+        #emailCampaignsCard .card-head {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 12px;
+        }
+        #emailCampaignsCard .card-head .toolbar {
+          flex-wrap: wrap;
+          width: 100%;
+        }
+        #emailCampaignsCard .card-head .btn.sm { flex: 1 1 auto; }
+        .ec-cadence { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+        .ec-cadence > .btn { grid-column: 1 / -1; }
+        .ec-send-row { grid-template-columns: minmax(0, 1fr); }
+        .ec-send-row > .btn { width: 100%; }
+        .ec-live { padding: 14px; }
+        .ec-live-top { flex-direction: column; }
+      }
+
+      @media (max-width: 430px) {
+        .ec-cadence { grid-template-columns: minmax(0, 1fr); }
+        .ec-live-stats { grid-template-columns: minmax(0, 1fr); }
+        .ec-hint { flex-wrap: wrap; }
+      }
+
+      /* Campaign history: let cells wrap instead of forcing a wide horizontal
+         scroll, and drop the least important column on phones. */
+      @media (max-width: 700px) {
+        .ec-table th,
+        .ec-table td { white-space: normal; }
+        .ec-table th { padding: 9px 8px; font-size: 10px; }
+        .ec-table td { padding: 10px 8px; font-size: 11.5px; }
+        .ec-table td:first-child { max-width: 150px; }
+        .ec-table .btn.sm { padding: 0 10px; }
+      }
+
+      @media (max-width: 430px) {
+        .ec-table th:nth-child(5),
+        .ec-table td:nth-child(5) { display: none; }
+      }
+
+      .ec-live + .ec-live { margin-top: 10px; }
+
+      .ec-live {
+        margin-top: 16px;
+        border: 1px solid rgba(246, 146, 81, .35);
+        border-radius: 18px;
+        background:
+          radial-gradient(320px 120px at 100% 0%, rgba(246, 146, 81, .10), transparent 60%),
+          linear-gradient(180deg, #fffdf9, #fff);
+        padding: 18px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .ec-live-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .ec-live-subject {
+        font-family: var(--display);
+        font-weight: 600;
+        font-size: 15px;
+        letter-spacing: -.02em;
+        color: var(--ink);
+        line-height: 1.3;
+      }
+
+      .ec-live-meta {
+        font-size: 12px;
+        color: var(--stone);
+        margin-top: 3px;
+      }
+
+      .ec-live-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin: 12px 0;
+      }
+
+      .ec-live-stat {
+        border: 1px solid var(--line-soft);
+        border-radius: 12px;
+        background: #fff;
+        padding: 10px 12px;
+      }
+
+      .ec-live-stat b {
+        display: block;
+        font-family: var(--display);
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -.03em;
+        color: var(--ink);
+      }
+
+      .ec-live-stat b.ok { color: var(--green); }
+      .ec-live-stat b.bad { color: var(--red); }
+
+      .ec-live-stat span {
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: .05em;
+        text-transform: uppercase;
+        color: var(--pebble);
+      }
+
+      .ec-bar {
+        height: 10px;
+        border-radius: 999px;
+        background: rgba(27, 25, 22, .07);
+        overflow: hidden;
+        margin: 4px 0 6px;
+      }
+
+      .ec-bar i {
+        display: block;
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #fb923c, #ef5b6e);
+        box-shadow: 0 0 12px rgba(246, 146, 81, .5);
+        transition: width .4s ease;
+      }
+
+      .ec-next {
+        font-size: 11.5px;
+        color: var(--pebble);
+        margin-bottom: 12px;
+      }
+
+      .ec-table-wrap {
+        overflow-x: auto;
+        max-width: 100%;
+        overscroll-behavior-x: contain;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+      }
+
+      .ec-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 0;
+      }
+
+      .ec-table th {
+        padding: 11px 14px;
+        font-size: 10.5px;
+        background: transparent;
+      }
+
+      .ec-table td {
+        padding: 12px 14px;
+        font-size: 12.5px;
+        white-space: nowrap;
+      }
+
+      .ec-table td:first-child {
+        max-width: 210px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 600;
+        letter-spacing: -.015em;
+      }
+
+      .ec-table td:first-child:before { display: none; }
+
+      .ec-table .btn.sm {
+        min-height: 32px;
+        height: 32px;
+        padding: 0 13px;
+        font-size: 12px;
+        border-radius: 10px;
+        gap: 0;
+      }
+
+      .ec-empty {
+        padding: 28px 16px;
+        text-align: center;
+        color: var(--pebble);
+        font-size: 12.5px;
+      }
+
+      .visitors-scroll table { font-size: 12px; margin: 0; }
+      .visitors-scroll th, .visitors-scroll td { padding: 6px 10px; white-space: nowrap; }
+    </style>
+    <section class="page-hero">
+      <div>
+        <div class="hero-pill">
+          <span class="hero-pill-dot"></span>
+          Super admin command center · v2 plan controls
+        </div>
+        <h1>Your entire operation, <em>in view</em>.</h1>
+        <p>
+          Users, plan approvals, lead volume, SMTP health, and job performance — reviewed from one admin command center.
+        </p>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn secondary" href="/app">Open dashboard</a>
+        <button class="btn" type="button" onclick="loadAdmin()">Refresh</button>
+      </div>
+    </section>
+
+    <div class="content">
+      <div id="errorBox" class="error-box"></div>
+
+      <section class="stat-grid">
+        <article class="card stat-card">
+          <div class="stat-top">
+            <div class="stat-label">Total users</div>
+            <span class="stat-chip">◎</span>
+          </div>
+          <div>
+            <div id="totalUsers" class="stat-value">0</div>
+            <div class="stat-note">All registered accounts</div>
+          </div>
+        </article>
+
+        <article class="card stat-card">
+          <div class="stat-top">
+            <div class="stat-label">Leads generated</div>
+            <span class="stat-chip">✦</span>
+          </div>
+          <div>
+            <div id="totalLeads" class="stat-value">0</div>
+            <div class="stat-note">All time, never decreases</div>
+            <div id="storedLeads" class="stat-subnote">In store now: 0 (24h window)</div>
+          </div>
+        </article>
+
+        <article class="card stat-card">
+          <div class="stat-top">
+            <div class="stat-label">Jobs created</div>
+            <span class="stat-chip">⇲</span>
+          </div>
+          <div>
+            <div id="totalJobs" class="stat-value">0</div>
+            <div class="stat-note">All time, never decreases</div>
+            <div id="storedJobs" class="stat-subnote">In store now: 0 (24h window)</div>
+          </div>
+        </article>
+
+        <article class="card stat-card">
+          <div class="stat-top">
+            <div class="stat-label">SMTP connected</div>
+            <span class="stat-chip">✉</span>
+          </div>
+          <div>
+            <div id="smtpConnected" class="stat-value">0</div>
+            <div class="stat-note">Users with sender setup</div>
+          </div>
+        </article>
+      </section>
+
+      <section class="card" id="paymentVisitsCard" style="margin-bottom:22px">
+        <div class="card-head">
+          <h2>Payment page visits</h2>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="btn secondary" type="button" onclick="loadPaymentVisits()">Refresh</button>
+          </div>
+        </div>
+        <p style="margin:2px 0 14px;color:#777;font-size:13px">Every visitor who reached the checkout (payment) page — who they are, the plan they were looking at, how many times they returned, and whether they paid.</p>
+        <div class="stat-grid" style="margin-bottom:16px">
+          <article class="card stat-card">
+            <div class="stat-top"><div class="stat-label">Visitors</div><span class="stat-chip">▣</span></div>
+            <div><div id="pvVisitors" class="stat-value">0</div><div class="stat-note">distinct people</div></div>
+          </article>
+          <article class="card stat-card">
+            <div class="stat-top"><div class="stat-label">Signed in</div><span class="stat-chip">◉</span></div>
+            <div><div id="pvIdentified" class="stat-value">0</div><div class="stat-note">matched to an account</div></div>
+          </article>
+          <article class="card stat-card">
+            <div class="stat-top"><div class="stat-label">Anonymous</div><span class="stat-chip">◌</span></div>
+            <div><div id="pvAnonymous" class="stat-value">0</div><div class="stat-note">no account</div></div>
+          </article>
+          <article class="card stat-card">
+            <div class="stat-top"><div class="stat-label">Converted</div><span class="stat-chip">✓</span></div>
+            <div><div id="pvConverted" class="stat-value">0</div><div class="stat-note">went on to pay</div></div>
+          </article>
+        </div>
+        <div class="visitors-scroll">
+          <table>
+            <thead>
+              <tr><th>User</th><th>Plan</th><th>Source</th><th>Account</th><th>Visits</th><th>First seen</th><th>Last seen</th><th>Status</th></tr>
+            </thead>
+            <tbody id="paymentVisitsTbody"></tbody>
+          </table>
+        </div>
+        <div id="paymentVisitsTotal" style="margin-top:12px;font-size:13px;color:#555"></div>
+        <div id="paymentVisitsMsg" style="margin-top:8px;font-size:13px;color:#a55"></div>
+      </section>
+
+      <section class="grid">
+        <div class="stack">
+          <section class="card">
+            <div class="card-head">
+              <div class="head-left">
+                <div class="pill-label">Users</div>
+                <h2>User accounts</h2>
+                <p>Review registered users, roles, selected plans, lead limits, and SMTP status.</p>
+              </div>
+
+              <div class="toolbar">
+                <button class="btn secondary" type="button" onclick="loadUsers()">Reload users</button>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="search-row">
+                <input id="userSearch" placeholder="Search users by email..." oninput="renderUsers()">
+                <select id="roleFilter" onchange="renderUsers()">
+                  <option value="">All roles</option>
+                  <option value="admin">Admin</option>
+                  <option value="user">User</option>
+                </select>
+              </div>
+
+              <div class="table-wrap table-scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>User</th>
+                      <th>Role</th>
+                      <th>Plan</th>
+                      <th>Expires</th>
+                      <th>Request</th>
+                      <th>Limit</th>
+                      <th>SMTP</th>
+                      <th>Created</th>
+                      <th>Set plan</th>
+                    </tr>
+                  </thead>
+                  <tbody id="usersTbody">
+                    <tr>
+                      <td colspan="8">
+                        <div class="empty">
+                          <strong>Loading users</strong>
+                          Fetching admin data...
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-head">
+              <div class="head-left">
+                <div class="pill-label">Add-on</div>
+                <h2>Company & Contact Enrichment</h2>
+                <p>Grant or revoke the paid enrichment add-on for a user, adjust their enrichment credits, and watch provider usage. The tier (price and allowance) follows the user's own plan automatically.</p>
+              </div>
+
+              <div class="toolbar">
+                <button class="btn secondary" type="button" onclick="loadEnrichmentAdmin()">Reload</button>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div id="enrAdminSummary" class="search-row" style="flex-wrap:wrap;gap:8px">
+                <span class="muted small">Loading enrichment usage...</span>
+              </div>
+
+              <div class="search-row" style="margin-top:14px">
+                <select id="enrAdminUser" onchange="loadEnrichmentStatus()">
+                  <option value="">Select a user...</option>
+                </select>
+                <button class="btn secondary" type="button" onclick="loadEnrichmentStatus()">Load status</button>
+              </div>
+
+              <div id="enrAdminStatus" class="empty" style="margin-top:14px">
+                <strong>No user selected</strong>
+                Pick a user to see their add-on entitlement, tier and credit balance.
+              </div>
+
+              <div class="toolbar" id="enrAdminActions" style="margin-top:14px;display:none">
+                <button class="btn" type="button" onclick="enrichmentGrant(30)">Grant 30 days</button>
+                <button class="btn secondary" type="button" onclick="enrichmentGrant(90)">Grant 90 days</button>
+                <button class="btn secondary" type="button" onclick="enrichmentAdjust(50)">+50 credits</button>
+                <button class="btn secondary" type="button" onclick="enrichmentAdjust(-50)">-50 credits</button>
+                <button class="btn secondary" type="button" onclick="enrichmentRevoke()">Revoke</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-head">
+              <div class="head-left">
+                <div class="pill-label">Jobs</div>
+                <h2>Recent jobs</h2>
+                <p>See the latest lead research jobs and their processing status.</p>
+              </div>
+
+              <div class="toolbar">
+                <button class="btn secondary" type="button" onclick="loadJobs()">Reload jobs</button>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Job</th>
+                      <th>User</th>
+                      <th>Status</th>
+                      <th>Leads</th>
+                      <th>Created</th>
+                    </tr>
+                  </thead>
+                  <tbody id="jobsTbody">
+                    <tr>
+                      <td colspan="5">
+                        <div class="empty">
+                          <strong>Loading jobs</strong>
+                          Fetching recent research jobs...
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-head">
+              <div class="head-left">
+                <div class="pill-label">Referrals</div>
+                <h2>Referrals &amp; payouts</h2>
+                <p>20% of every payment a referred user makes, forever. Pay or void Pending commissions here.</p>
+              </div>
+
+              <div class="toolbar">
+                <button class="btn secondary" type="button" onclick="loadReferrals()">Reload</button>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="search-row" style="margin-bottom:14px;flex-wrap:wrap">
+                <div style="flex:1;min-width:180px">
+                  <strong id="refPendingCount" style="font-size:18px">–</strong>
+                  <span style="color:var(--muted);font-size:13px">&nbsp; pending</span>
+                  <span style="color:var(--muted);font-size:13px">&nbsp;·&nbsp;</span>
+                  <strong id="refPendingUsd" style="font-size:18px">$–</strong>
+                  <span style="color:var(--muted);font-size:13px">&nbsp; to pay out</span>
+                </div>
+                <div style="flex:1;min-width:140px;text-align:right">
+                  <strong id="refPaidUsd" style="font-size:16px">$–</strong>
+                  <span style="color:var(--muted);font-size:13px">&nbsp; paid out all-time</span>
+                </div>
+              </div>
+
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Referrer</th>
+                      <th>Referred user</th>
+                      <th>Plan</th>
+                      <th>Amount paid</th>
+                      <th>Commission (20%)</th>
+                      <th>Status</th>
+                      <th>Date</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="refsTbody">
+                    <tr>
+                      <td colspan="8">
+                        <div class="empty">
+                          <strong>Loading referrals</strong>
+                          Fetching commission records...
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-head">
+              <div class="head-left">
+                <div class="pill-label">Referral signups</div>
+                <h2>Who came from who</h2>
+                <p>Every account created through a referral link. These users also appear in the Users list above.</p>
+              </div>
+
+              <div class="toolbar">
+                <button class="btn secondary" type="button" onclick="loadReferralSignups()">Reload</button>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="search-row" style="margin-bottom:14px;flex-wrap:wrap">
+                <div style="flex:1;min-width:180px">
+                  <strong id="refSignupCount" style="font-size:18px">–</strong>
+                  <span style="color:var(--muted);font-size:13px">&nbsp; total referred signups</span>
+                </div>
+              </div>
+
+              <div class="table-wrap table-scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Referred user</th>
+                      <th>Came from</th>
+                      <th>Plan</th>
+                      <th>Status</th>
+                      <th>Signed up</th>
+                    </tr>
+                  </thead>
+                  <tbody id="refSignupTbody">
+                    <tr>
+                      <td colspan="5">
+                        <div class="empty">
+                          <strong>Loading referral signups</strong>
+                          Fetching referred accounts...
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-head">
+              <div class="head-left">
+                <div class="pill-label">Promo codes</div>
+                <h2>Checkout discounts</h2>
+                <p>Codes a customer can apply at checkout. The discount is committed when you approve their payment, and is re-checked at that moment so an expired or used-up code never still grants the discount.</p>
+              </div>
+
+              <div class="toolbar">
+                <button class="btn secondary" type="button" onclick="loadPromos()">Reload</button>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="promo-form">
+                <div class="promo-form-grid">
+                  <div class="promo-field">
+                    <label for="promoCodeInput">Code</label>
+                    <input id="promoCodeInput" type="text" maxlength="40" placeholder="e.g. LAUNCH20" style="text-transform:uppercase" />
+                  </div>
+                  <div class="promo-field">
+                    <label>Discount</label>
+                    <div class="split">
+                      <select id="promoType">
+                        <option value="percent">% off</option>
+                        <option value="amount">$ off</option>
+                      </select>
+                      <input id="promoValue" type="number" min="1" step="1" placeholder="Discount value" />
+                    </div>
+                  </div>
+                  <div class="promo-field">
+                    <label for="promoMaxUses">Max uses</label>
+                    <input id="promoMaxUses" type="number" min="1" step="1" placeholder="0 = unlimited" />
+                  </div>
+                  <div class="promo-field">
+                    <label for="promoExpires">Expires</label>
+                    <input id="promoExpires" type="date" />
+                  </div>
+                </div>
+                <div class="promo-field">
+                  <label>Billing cycles</label>
+                  <div class="promo-cycles">
+                    <label class="promo-cycle-chip active"><input type="checkbox" class="promoCycle" value="monthly" checked /><span>1m</span></label>
+                    <label class="promo-cycle-chip"><input type="checkbox" class="promoCycle" value="3month" /><span>3m</span></label>
+                    <label class="promo-cycle-chip"><input type="checkbox" class="promoCycle" value="6month" /><span>6m</span></label>
+                    <label class="promo-cycle-chip"><input type="checkbox" class="promoCycle" value="yearly" /><span>1y</span></label>
+                  </div>
+                </div>
+                <div class="promo-field">
+                  <label for="promoNote">Note (internal)</label>
+                  <input id="promoNote" type="text" placeholder="Optional note shown in the table" />
+                </div>
+                <div class="promo-form-actions">
+                  <span class="promo-form-hint">Checked cycles = where the code works. All checked = any cycle.</span>
+                  <button class="btn" type="button" onclick="createPromoCode()">Create code</button>
+                </div>
+              </div>
+
+              <div id="promoMsg" style="margin-bottom:12px;font-size:13px"></div>
+
+              <div class="table-wrap table-scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Code</th>
+                      <th>Discount</th>
+                      <th>Used</th>
+                      <th>Expires</th>
+                      <th>Status</th>
+                      <th>Cycles</th>
+                      <th>Note</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="promoTbody">
+                    <tr>
+                      <td colspan="8">
+                        <div class="empty">
+                          <strong>Loading promo codes</strong>
+                          Fetching codes...
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-head">
+              <div class="head-left">
+                <div class="pill-label">Blog</div>
+                <h2>Articles &amp; guides</h2>
+                <p>Write the blog so the landing page and /blog stay fresh without touching code. Each article can carry a cover image with alt text, headings, paragraphs, in-article images with alt tags, a meta description, and tags.</p>
+              </div>
+
+              <div class="toolbar">
+                <button class="btn secondary" type="button" onclick="loadBlogs()">Reload</button>
+                <button class="btn" type="button" onclick="openBlogEditor()">New article</button>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div id="blogMsg" style="margin-bottom:12px;font-size:13px"></div>
+
+              <!-- list view -->
+              <div id="blogListWrap">
+                <div class="table-wrap table-scroll">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Title</th>
+                        <th>Status</th>
+                        <th>Tags</th>
+                        <th>Updated</th>
+                        <th>Link</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody id="blogTbody">
+                      <tr>
+                        <td colspan="6">
+                          <div class="empty">
+                            <strong>Loading articles</strong>
+                            Fetching blog posts...
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- editor view -->
+              <div id="blogEditorWrap" style="display:none">
+                <div class="promo-form">
+                  <div class="promo-form-grid" style="grid-template-columns:2fr 1fr">
+                    <div class="promo-field">
+                      <label for="blogTitle">Title *</label>
+                      <input id="blogTitle" type="text" maxlength="200" placeholder="How to find plumbers in Austin" />
+                    </div>
+                    <div class="promo-field">
+                      <label for="blogSlug">Slug (URL)</label>
+                      <input id="blogSlug" type="text" maxlength="200" placeholder="auto-from-title" />
+                    </div>
+                  </div>
+
+                  <div class="promo-field">
+                    <label for="blogMetaDescription">Meta description (search result text)</label>
+                    <textarea id="blogMetaDescription" maxlength="320" rows="2" placeholder="One or two sentences used by Google under the title."></textarea>
+                  </div>
+
+                  <div class="promo-field">
+                    <label for="blogExcerpt">Excerpt (card summary)</label>
+                    <textarea id="blogExcerpt" maxlength="500" rows="2" placeholder="Short summary shown on the blog cards."></textarea>
+                  </div>
+
+                  <div class="promo-form-grid" style="grid-template-columns:1fr 1fr">
+                    <div class="promo-field">
+                      <label>Cover image</label>
+                      <div class="split">
+                        <input id="blogCoverImage" type="text" placeholder="Image URL or /blog/img/..." />
+                        <input id="blogCoverUpload" type="file" accept="image/jpeg,image/png,image/webp,image/gif" class="blog-file" onchange="blogUploadImage(this, 'cover')" />
+                      </div>
+                      <img id="blogCoverPreview" class="blog-cover-preview" alt="cover preview" style="display:none" />
+                    </div>
+                    <div class="promo-field">
+                      <label for="blogCoverAlt">Cover alt text</label>
+                      <input id="blogCoverAlt" type="text" maxlength="400" placeholder="Describe the image for screen readers" />
+                    </div>
+                  </div>
+
+                  <div class="promo-form-grid" style="grid-template-columns:1fr 1fr 1fr">
+                    <div class="promo-field">
+                      <label for="blogAuthor">Author</label>
+                      <input id="blogAuthor" type="text" maxlength="120" placeholder="Leadmoz" />
+                    </div>
+                    <div class="promo-field">
+                      <label for="blogTags">Tags (comma separated)</label>
+                      <input id="blogTags" type="text" placeholder="lead-gen, seo, outreach" />
+                    </div>
+                    <div class="promo-field">
+                      <label for="blogStatus">Status</label>
+                      <select id="blogStatus">
+                        <option value="draft">Draft</option>
+                        <option value="published">Published</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="promo-field">
+                    <label>Article content</label>
+                    <div id="blogBlocks"></div>
+                    <div class="blog-block-actions">
+                      <button class="btn small" type="button" onclick="blogAddBlock('heading')">+ Heading</button>
+                      <button class="btn small" type="button" onclick="blogAddBlock('paragraph')">+ Paragraph</button>
+                      <button class="btn small" type="button" onclick="blogAddBlock('image')">+ Image</button>
+                    </div>
+                  </div>
+
+                  <div class="promo-form-actions" style="justify-content:flex-end">
+                    <button class="btn secondary" type="button" onclick="cancelBlogEditor()">Cancel</button>
+                    <button class="btn" type="button" onclick="saveBlog()">Save article</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="stack">
+          <section class="card">
+            <div class="card-head">
+              <div class="head-left">
+                <div class="pill-label">Limits</div>
+                <h2>Plan controls</h2>
+                <p>Visual plan limits until payment integration is added.</p>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="quota-grid">
+                <div class="quota-row">
+                  <div>
+                    <div class="quota-title">Free plan</div>
+                    <div class="quota-desc">One-time intro grant; no daily refill.</div>
+                  </div>
+                  <div class="quota-value q-free">10 one-time</div>
+                  <div class="quota-bar qbar-free"><i></i></div>
+                </div>
+
+                <div class="quota-row">
+                  <div>
+                    <div class="quota-title">Starter plan</div>
+                    <div class="quota-desc">Coming soon after billing integration.</div>
+                  </div>
+                  <div class="quota-value q-starter">150/day</div>
+                  <div class="quota-bar qbar-starter"><i></i></div>
+                </div>
+
+                <div class="quota-row">
+                  <div>
+                    <div class="quota-title">Pro plan</div>
+                    <div class="quota-desc">Higher volume plan for teams.</div>
+                  </div>
+                  <div class="quota-value q-pro">500/day</div>
+                  <div class="quota-bar qbar-pro"><i></i></div>
+                </div>
+
+                <div class="quota-row">
+                  <div>
+                    <div class="quota-title">Admin</div>
+                    <div class="quota-desc">Super admin account bypass.</div>
+                  </div>
+                  <div class="quota-value q-admin">Unlimited</div>
+                  <div class="quota-bar qbar-admin"><i></i></div>
+                </div>
+              </div>
+
+              <div class="notice">
+                Users pick a plan on the pricing page, pay via bank transfer, then verify on WhatsApp. Approve them from the Users table to upgrade their dashboard.
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="card-head">
+              <div class="head-left">
+                <div class="pill-label">System</div>
+                <h2>System status</h2>
+                <p>Quick overview of admin-only operational checks.</p>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="admin-list">
+                <div class="admin-item">
+                  <div class="admin-item-top">
+                    <h3>Admin access</h3>
+                    <span class="tag ok">Active</span>
+                  </div>
+                  <p id="adminEmailText">Logged in as admin account.</p>
+                </div>
+
+                <div class="admin-item">
+                  <div class="admin-item-top">
+                    <h3>Platform SMTP</h3>
+                    <span id="platformSmtpTag" class="tag warn">Unknown</span>
+                  </div>
+                  <p>Used for login codes, password resets, and admin testing only.</p>
+                </div>
+
+                <div class="admin-item">
+                  <div class="admin-item-top">
+                    <h3>User SMTP</h3>
+                    <span class="tag blue">Required</span>
+                  </div>
+                  <p>Normal users should connect their own Gmail sender before campaign email sending.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </aside>
+      </section>
+
+      <section class="card" id="emailCampaignsCard" style="margin-top:22px">
+        <div class="card-head">
+          <div class="head-left">
+            <div class="pill-label">Growth</div>
+            <h2>Email campaigns</h2>
+            <p>Marketing broadcasts drip in small batches so sender reputation stays healthy. Set the gap and batch size below — changes apply to campaigns already running. The 20-hour lead expiry alerts are transactional and send immediately, never through this queue.</p>
+          </div>
+          <div class="toolbar">
+            <span id="campaignSmtpTag" class="tag warn">Checking SMTP…</span>
+            <button class="btn sm" type="button" onclick="jumpToBroadcast()">+ New broadcast</button>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="ec-grid">
+            <div class="ec-panel">
+              <div class="ec-panel-head">
+                <h3>Templates <span class="ec-count" style="margin-left:6px">Step 1</span></h3>
+                <span class="ec-count" id="tplCount">0</span>
+              </div>
+              <div id="tplList"></div>
+
+              <div class="ec-divider"></div>
+
+              <div class="ec-panel-head">
+                <h3 id="tplEditorTitle">Editor</h3>
+              </div>
+
+              <div class="ec-field">
+                <label for="tplName">Template name</label>
+                <input type="text" id="tplName" placeholder="e.g. Comparison Positioning Broadcast">
+              </div>
+              <div class="ec-field">
+                <label for="tplSubject">Subject line</label>
+                <input type="text" id="tplSubject" placeholder="What recipients see in their inbox">
+              </div>
+              <div class="ec-hint">
+                <span>Personalize with</span>
+                <code>{First_Name}</code>
+                <span>— replaced per recipient</span>
+              </div>
+              <div class="ec-field">
+                <label for="tplBody">Email body</label>
+                <textarea id="tplBody" rows="11" placeholder="Write the email here…"></textarea>
+              </div>
+              <div class="ec-actions">
+                <button class="btn" type="button" onclick="saveEmailTemplate()">Save template</button>
+                <button class="btn secondary" type="button" onclick="newEmailTemplate()">New template</button>
+              </div>
+              <div id="tplMsg" class="ec-msg"></div>
+            </div>
+
+            <div class="stack">
+              <div class="ec-panel" id="newBroadcastPanel">
+                <div class="ec-panel-head">
+                  <h3>New broadcast</h3>
+                  <span class="ec-count">Step 2</span>
+                </div>
+                <p style="margin:0 0 14px;font-size:12.5px;color:var(--stone);line-height:1.55">
+                  Sends the selected template's saved content. Each tick releases one batch, waits the gap, then releases the next until the segment queue is drained. Campaigns can run side by side with different audiences.
+                </p>
+
+                <div class="ec-cadence">
+                  <div class="ec-field" style="margin:0">
+                    <label for="ecGap">Gap between batches</label>
+                    <select id="ecGap" onchange="updateCadenceNote()">
+                      <option value="5">5 minutes</option>
+                      <option value="10">10 minutes</option>
+                      <option value="15" selected>15 minutes</option>
+                      <option value="30">30 minutes</option>
+                      <option value="60">60 minutes</option>
+                    </select>
+                  </div>
+                  <div class="ec-field" style="margin:0">
+                    <label for="ecBatch">Emails per batch</label>
+                    <select id="ecBatch" onchange="updateCadenceNote()">
+                      <option value="1">1 — sequential</option>
+                      <option value="2" selected>2 at once</option>
+                      <option value="3">3 at once</option>
+                      <option value="4">4 at once</option>
+                      <option value="5">5 at once</option>
+                    </select>
+                  </div>
+                  <button class="btn secondary" type="button" onclick="saveCampaignCadence()">Save cadence</button>
+                </div>
+                <p class="ec-cadence-note" id="ecCadenceNote">Loading current cadence…</p>
+
+                <div class="ec-send-row">
+                  <div class="ec-field" style="margin:0">
+                    <label for="campaignSegment">Audience segment</label>
+                    <select id="campaignSegment">
+                      <option value="all">All Users</option>
+                      <option value="free">Free Users Only</option>
+                      <option value="paid">Paid Users Only</option>
+                    </select>
+                  </div>
+                  <button class="btn" type="button" onclick="sendBulkCampaign()">Start broadcast</button>
+                </div>
+                <p class="ec-cadence-note" style="margin:8px 0 0">Emails the chosen segment using the template selected in Step 1. Pick the template first, then press this button.</p>
+                <div id="campaignMsg" class="ec-msg"></div>
+
+                <div id="activeCampaignBox"></div>
+              </div>
+
+              <div class="ec-panel">
+                <div class="ec-panel-head">
+                  <h3>Campaign history</h3>
+                  <span class="ec-count" id="campCount">0</span>
+                </div>
+                <div class="ec-table-wrap">
+                  <table class="ec-table">
+                    <thead>
+                      <tr><th>Subject</th><th>Segment</th><th>Status</th><th>Sent</th><th>Created</th><th></th></tr>
+                    </thead>
+                    <tbody id="campaignsTbody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="page-foot">
+    Leadmoz &mdash; admin command center &middot; version 2 plan controls &middot;
+    <a href="/terms">Terms</a> &middot;
+    <a href="/privacy">Privacy</a> &middot;
+    <a href="/refund">Refunds</a> &middot;
+    <a href="/compliance">Compliance</a> &middot;
+    <a href="/acceptable-use">Acceptable Use</a> &middot;
+    <a href="/affiliates">Affiliates</a>
+  </footer>
+
+  <script>
+    let adminState = {
+      users: [],
+      jobs: [],
+      overview: {},
+      referralSignups: [],
+      promos: [],
+      promoSummary: {},
+      blogs: []
+    };
+
+    let blogEdit = { id: "", blocks: [] };
+
+    const sampleUsers = [
+      {
+        email: "admin@example.com",
+        role: "admin",
+        plan: "admin",
+        dailyLeadLimit: "Unlimited",
+        smtpConfigured: true,
+        createdAt: "Super admin"
+      },
+      {
+        email: "demo.user@example.com",
+        role: "user",
+        plan: "free",
+        dailyLeadLimit: 10,
+        smtpConfigured: false,
+        createdAt: "Sample"
+      }
+    ];
+
+    const sampleJobs = [
+      {
+        id: "sample-job-1",
+        email: "demo.user@example.com",
+        niche: "Plumbers",
+        location: "Dallas Texas",
+        status: "completed",
+        leadsCount: 10,
+        createdAt: "Sample"
+      },
+      {
+        id: "sample-job-2",
+        email: "demo.user@example.com",
+        niche: "Car mechanics",
+        location: "New York",
+        status: "processing",
+        leadsCount: 4,
+        createdAt: "Sample"
+      }
+    ];
+
+    async function loadAdmin() {
+      clearError();
+
+      await Promise.all([
+        loadOverview(),
+        loadUsers(),
+        loadEnrichmentAdmin(),
+        loadJobs(),
+        loadReferrals(),
+        loadReferralSignups(),
+        loadPromos(),
+        loadBlogs(),
+        loadPaymentVisits()
+      ]);
+
+      renderOverview();
+      renderUsers();
+      renderJobs();
+      renderReferrals();
+      renderReferralSignups();
+      renderPromos();
+      renderBlogs();
+    }
+
+    async function loadOverview() {
+      const json = await tryFetchJson([
+        "/api/admin/overview",
+        "/api/admin/stats",
+        "/api/admin"
+      ]);
+
+      if (json) {
+        adminState.overview = json.overview || json.stats || json;
+      } else {
+        adminState.overview = {};
+      }
+    }
+
+    /*
+      Who went to the payment page. One row per distinct visitor (signed-in
+      users keyed by account, anonymous visitors by session). Shows the plan
+      they were looking at, how many times they visited, and whether they paid.
+    */
+    async function loadPaymentVisits() {
+      const json = await tryFetchJson(["/api/admin/payment-visits"]);
+      const m = document.getElementById("paymentVisitsMsg");
+      if (!json) {
+        if (m) m.textContent = "Payment-visit data unavailable (endpoint not reachable).";
+        return;
+      }
+      if (m) m.textContent = "";
+      renderPaymentVisits(json);
+    }
+
+    function renderPaymentVisits(data) {
+      const t = data.totals || {};
+      const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+      set("pvVisitors", t.visitors ?? 0);
+      set("pvIdentified", t.identifiedVisitors ?? 0);
+      set("pvAnonymous", t.anonymousVisitors ?? 0);
+      set("pvConverted", t.converted ?? 0);
+
+      const fmt = (iso) => {
+        if (!iso) return "—";
+        const d = new Date(iso);
+        return isNaN(d.getTime()) ? "—" : d.toLocaleString();
+      };
+
+      const tbody = document.getElementById("paymentVisitsTbody");
+      const visits = Array.isArray(data.visits) ? data.visits : [];
+      if (tbody) {
+        if (!visits.length) {
+          tbody.innerHTML = '<tr><td colspan="8" style="color:#888">No payment-page visits recorded yet.</td></tr>';
+        } else {
+          tbody.innerHTML = visits.map(function (v) {
+            const linked = Array.isArray(v.linkedAccounts) ? v.linkedAccounts : [];
+            const linkedText = linked.map(function (a) { return a.email || a.name; }).filter(Boolean).join(", ");
+            const who = v.anonymous
+              ? (v.intentEmail
+                  ? '<strong>' + esc(v.intentEmail) + '</strong><div style="color:#888;font-size:12px">entered email · not signed up</div>'
+                  : '<span style="color:#888">Anonymous visitor</span>')
+                + (linkedText
+                  ? '<div style="font-size:12px;color:#333">then signed up as ' + esc(linkedText) + '</div>'
+                  : (v.intentEmail ? "" : '<div style="font-size:12px;color:#aaa">device ' + esc(v.sessionId ? v.sessionId.slice(0, 8) : "unknown") + '</div>'))
+              : '<strong>' + esc(v.email || v.name || v.userId) + '</strong>' + (v.name && v.email ? '<div style="color:#888;font-size:12px">' + esc(v.name) + '</div>' : "");
+            const plan = (v.plans && v.plans.length ? v.plans.join(", ") : "—");
+            const src = String(v.source || "").trim();
+            let refHost = "";
+            try { refHost = v.referrer ? new URL(v.referrer).host : ""; } catch (e) { refHost = String(v.referrer || ""); }
+            const sourceCell = (src || refHost)
+              ? esc(src || "—") + (refHost ? '<div style="color:#888;font-size:12px">from ' + esc(refHost) + '</div>' : "")
+              : '<span style="color:#aaa">direct</span>';
+            const account = v.anonymous ? "—" : esc(v.accountPlan || "free") + (v.lifetimeTier > 0 ? " · lifetime" : "");
+            const status = v.converted
+              ? '<span style="color:#1a7f37;font-weight:600">Paid ✓</span>'
+              : '<span style="color:#a55">Did not pay</span>';
+            return '<tr>' +
+              '<td>' + who + '</td>' +
+              '<td>' + esc(plan) + '</td>' +
+              '<td>' + sourceCell + '</td>' +
+              '<td>' + account + '</td>' +
+              '<td>' + (v.visits || 0) + '</td>' +
+              '<td>' + fmt(v.firstAt) + '</td>' +
+              '<td>' + fmt(v.lastAt) + '</td>' +
+              '<td>' + status + '</td>' +
+              '</tr>';
+          }).join("");
+        }
+      }
+      const totalEl = document.getElementById("paymentVisitsTotal");
+      if (totalEl) {
+        totalEl.textContent = (t.totalVisits ?? 0) + " total checkout page views across " + (t.visitors ?? 0) + " visitor" + ((t.visitors === 1) ? "" : "s") + ".";
+      }
+    }
+
+    async function loadUsers() {
+      const json = await tryFetchJson([
+        "/api/admin/users",
+        "/api/users"
+      ]);
+
+      if (json) {
+        adminState.users = Array.isArray(json) ? json : (json.users || []);
+      } else {
+        adminState.users = sampleUsers;
+        showSoftError("Admin users API not found yet. Showing sample admin UI data. Add /api/admin/users later or update endpoint names in this file.");
+      }
+
+      renderOverview();
+      renderUsers();
+      fillEnrichmentUserSelect();
+    }
+
+    /* ------------------------------------------- enrichment add-on (admin) */
+
+    function fillEnrichmentUserSelect() {
+      const sel = document.getElementById("enrAdminUser");
+      if (!sel) return;
+      const current = sel.value;
+      const users = adminState.users || [];
+      sel.innerHTML = `<option value="">Select a user...</option>` + users.map(u => {
+        const id = u.id || u.userId || "";
+        const plan = u.plan && u.plan !== "free" ? ` · ${u.plan}` : "";
+        return `<option value="${esc(id)}">${esc(u.email || u.userEmail || id)}${esc(plan)}</option>`;
+      }).join("");
+      if (current) sel.value = current;
+    }
+
+    async function loadEnrichmentAdmin() {
+      const json = await tryFetchJson(["/api/enrichment/admin/summary"]);
+      const box = document.getElementById("enrAdminSummary");
+      if (!box) return;
+      if (!json || !json.summary) {
+        box.innerHTML = `<span class="tag red">Enrichment admin API unavailable</span>`;
+        return;
+      }
+      const s = json.summary;
+      const usage = json.providerUsage || {};
+      const disabled = json.disabledProviders || [];
+
+      const providerTags = Object.keys(usage).map(name => {
+        const row = usage[name] || {};
+        const calls = row.total ?? Object.values(row.daily || {}).reduce((a, b) => a + (Number(b) || 0), 0);
+        const bad = row.lastError ? String(row.lastError) : "";
+        return `<span class="tag ${bad ? "warn" : "ok"}">${esc(name)}: ${calls} calls${bad ? " · last error: " + esc(bad.slice(0, 60)) : ""}</span>`;
+      });
+
+      box.innerHTML = [
+        `<span class="tag ${s.featureEnabled ? "ok" : "red"}">${s.featureEnabled ? "Feature on" : "Feature off (no price id)"}</span>`,
+        `<span class="tag blue">${s.totalJobs || 0} jobs</span>`,
+        `<span class="tag blue">${s.creditsCharged || 0} credits charged · ${s.creditsRefunded || 0} refunded</span>`,
+        ...providerTags,
+        ...(disabled.length ? [`<span class="tag red">Disabled: ${esc(disabled.join(", "))}</span>`] : [])
+      ].join("");
+
+      fillEnrichmentUserSelect();
+    }
+
+    function enrichmentUserId() {
+      const sel = document.getElementById("enrAdminUser");
+      return sel ? sel.value : "";
+    }
+
+    async function loadEnrichmentStatus() {
+      const userId = enrichmentUserId();
+      const box = document.getElementById("enrAdminStatus");
+      const actions = document.getElementById("enrAdminActions");
+      if (!userId) {
+        box.className = "empty";
+        box.innerHTML = `<strong>No user selected</strong>Pick a user to see their add-on entitlement and credit balance.`;
+        actions.style.display = "none";
+        return;
+      }
+      const json = await tryFetchJson([`/api/enrichment/admin/entitlements/${encodeURIComponent(userId)}`]);
+      if (!json) {
+        box.className = "empty";
+        box.innerHTML = `<strong>Could not load status</strong>The enrichment admin API is unavailable.`;
+        actions.style.display = "none";
+        return;
+      }
+      const e = json.entitlement || {};
+      const a = json.account || {};
+      const txs = (json.transactions || []).slice(0, 6);
+      const active = Boolean(e.active) && (!e.expiresAt || Date.parse(e.expiresAt) > Date.now());
+      const tags = [
+        `<span class="tag ${active ? "ok" : "red"}">${active ? "Add-on active" : "Not active"}</span>`,
+        e.tier ? `<span class="tag blue">${esc(e.tier)} tier</span>` : `<span class="tag warn">no tier yet</span>`,
+        e.expiresAt ? `<span class="tag ${Date.parse(e.expiresAt) > Date.now() ? "ok" : "warn"}">expires ${esc(new Date(e.expiresAt).toLocaleString())}</span>` : "",
+        e.canceledAt ? `<span class="tag warn">cancellation scheduled</span>` : "",
+        e.pastDueAt ? `<span class="tag red">past due</span>` : "",
+        `<span class="tag ${(a.balance || 0) > 0 ? "blue" : "warn"}">${a.balance || 0} credits left</span>`
+      ].filter(Boolean).join("");
+
+      box.className = "";
+      box.innerHTML = `
+        <div class="toolbar" style="flex-wrap:wrap;gap:8px">${tags}</div>
+        <div class="muted small" style="margin-top:8px">
+          Lifetime: ${a.lifetimeGranted || 0} granted · ${a.lifetimeUsed || 0} used · ${a.lifetimeRefunded || 0} refunded
+          ${e.source ? ` · via ${esc(e.source)}` : ""}
+          ${e.subscriptionId ? ` · sub ${esc(e.subscriptionId)}` : ""}
+        </div>
+        ${txs.length ? `<div class="muted small" style="margin-top:6px">Recent: ${txs.map(t => `${esc(t.type)} ${Number(t.amount) || 0} (${esc(t.reason || "")})`).join(" · ")}</div>` : ""}
+      `;
+      actions.style.display = "";
+    }
+
+    async function enrichmentPost(path, body) {
+      try {
+        const res = await fetch(path, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(body || {})
+        });
+        if (res.status === 401 || res.status === 403) { window.location.href = "/auth"; return null; }
+        const json = await res.json().catch(() => null);
+        if (!res.ok) {
+          showSoftError((json && json.error) || "Enrichment admin action failed.");
+          return null;
+        }
+        clearError();
+        return json;
+      } catch {
+        showSoftError("Enrichment admin action failed.");
+        return null;
+      }
+    }
+
+    async function enrichmentGrant(days) {
+      const userId = enrichmentUserId();
+      if (!userId) return;
+      const r = await enrichmentPost("/api/enrichment/admin/grant", { userId, days });
+      if (r) { await loadEnrichmentStatus(); await loadEnrichmentAdmin(); }
+    }
+
+    async function enrichmentRevoke() {
+      const userId = enrichmentUserId();
+      if (!userId) return;
+      const r = await enrichmentPost("/api/enrichment/admin/revoke", { userId, reason: "admin_revoked" });
+      if (r) { await loadEnrichmentStatus(); await loadEnrichmentAdmin(); }
+    }
+
+    async function enrichmentAdjust(delta) {
+      const userId = enrichmentUserId();
+      if (!userId) return;
+      const r = await enrichmentPost("/api/enrichment/admin/adjust-credits", {
+        userId,
+        delta,
+        reason: delta > 0 ? "admin_topup" : "admin_deduction"
+      });
+      if (r) await loadEnrichmentStatus();
+    }
+
+    async function loadJobs() {
+      const json = await tryFetchJson([
+        "/api/admin/jobs",
+        "/api/jobs"
+      ]);
+
+      if (json) {
+        adminState.jobs = Array.isArray(json) ? json : (json.jobs || []);
+      } else {
+        adminState.jobs = sampleJobs;
+      }
+
+      renderOverview();
+      renderJobs();
+    }
+
+    async function loadReferrals() {
+      const json = await tryFetchJson([
+        "/api/admin/referrals"
+      ]);
+
+      if (json) {
+        adminState.referrals = json.rows || [];
+        adminState.referralSummary = json.summary || {};
+      } else {
+        adminState.referrals = [];
+        adminState.referralSummary = {};
+      }
+
+      renderReferrals();
+    }
+
+    function renderReferrals() {
+      const s = adminState.referralSummary || {};
+      document.getElementById("refPendingCount").textContent = Number(s.pending || 0);
+      document.getElementById("refPendingUsd").textContent = "$" + (Number(s.pendingTotalUsd) || 0).toFixed(2);
+      document.getElementById("refPaidUsd").textContent = "$" + (Number(s.paidTotalUsd) || 0).toFixed(2);
+
+      const rows = adminState.referrals || [];
+      const tbody = document.getElementById("refsTbody");
+      if (!tbody) return;
+
+      if (!rows.length) {
+        tbody.innerHTML = `<tr><td colspan="8"><div class="empty"><strong>No commissions yet</strong>Share referral links on the dashboard to start earning 20%.</div></td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = rows.map(c => {
+        const date = c.createdAt ? new Date(c.createdAt).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "";
+        const chip = c.status === "paid"
+          ? `<span style="color:#2f9e44;font-weight:600">Paid</span>`
+          : c.status === "void"
+            ? `<span style="color:#999;font-weight:600">Void</span>`
+            : `<span style="color:#f69251;font-weight:600">Pending</span>`;
+        const actions = c.status === "pending"
+          ? `<button class="btn small" type="button" onclick="referralAction('${c.id}','pay')">Mark paid</button>
+             <button class="btn small soft-danger" type="button" onclick="referralAction('${c.id}','void')">Void</button>`
+          : "";
+        return `<tr>
+          <td><strong>${esc(c.referrerName || c.referrerEmail)}</strong><br><span style="color:var(--muted);font-size:12px">${esc(c.referrerEmail || "")}</span></td>
+          <td><strong>${esc(c.refereeName || c.refereeEmail)}</strong><br><span style="color:var(--muted);font-size:12px">${esc(c.refereeEmail || "")}</span></td>
+          <td>${esc((c.plan || "") + " · " + (c.billing || ""))}</td>
+          <td>$${Number(c.amountPaid || 0).toFixed(2)}</td>
+          <td><strong>$${Number(c.commission || 0).toFixed(2)}</strong></td>
+          <td>${chip}</td>
+          <td>${esc(date)}</td>
+          <td style="white-space:nowrap">${actions}</td>
+        </tr>`;
+      }).join("");
+    }
+
+    async function referralAction(id, action) {
+      const res = await fetch(`/api/admin/referrals/${encodeURIComponent(id)}/${encodeURIComponent(action)}`, {
+        method: "POST",
+        headers: { "accept": "application/json" }
+      });
+
+      if (res.status === 401 || res.status === 403) {
+        window.location.href = "/auth";
+        return;
+      }
+
+      await loadReferrals();
+    }
+
+    async function loadReferralSignups() {
+      const json = await tryFetchJson([
+        "/api/admin/referral-signups"
+      ]);
+
+      adminState.referralSignups = (json && json.rows) || [];
+
+      renderReferralSignups();
+    }
+
+    function renderReferralSignups() {
+      const rows = adminState.referralSignups || [];
+      document.getElementById("refSignupCount").textContent = rows.length;
+
+      const tbody = document.getElementById("refSignupTbody");
+      if (!tbody) return;
+
+      if (!rows.length) {
+        tbody.innerHTML = `<tr><td colspan="5"><div class="empty"><strong>No referred signups yet</strong>Users sign up through the dashboard referral links and show up here.</div></td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = rows.map(u => {
+        const date = u.createdAt ? new Date(u.createdAt).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "";
+        const from = u.referrer
+          ? `<strong>${esc(u.referrer.name || u.referrer.email)}</strong><br><span style="color:var(--muted);font-size:12px">${esc(u.referrer.email || "")}</span>${u.referrer.refCode ? `<br><span style="color:#d9641f;font-size:12px">ref: ${esc(u.referrer.refCode)}</span>` : ""}`
+          : `<span style="color:var(--muted)">removed</span>`;
+        const plan = u.plan ? `<strong>${esc(String(u.plan).charAt(0).toUpperCase() + String(u.plan).slice(1))}</strong>` : "–";
+        const status = u.status === "active"
+          ? `<span style="color:#2f9e44;font-weight:600">Active</span>`
+          : `<span style="color:#e03131;font-weight:600">${esc(String(u.status || "unknown").charAt(0).toUpperCase() + String(u.status || "unknown").slice(1))}</span>`;
+        return `<tr>
+          <td><strong>${esc(u.name || u.email)}</strong><br><span style="color:var(--muted);font-size:12px">${esc(u.email || "")}</span></td>
+          <td>${from}</td>
+          <td>${plan}</td>
+          <td>${status}</td>
+          <td>${esc(date)}</td>
+        </tr>`;
+      }).join("");
+    }
+
+    async function loadPromos() {
+      const json = await tryFetchJson(["/api/admin/promos"]);
+
+      adminState.promos = (json && json.codes) || [];
+      adminState.promoSummary = (json && json.summary) || {};
+
+      renderPromos();
+    }
+
+    function setPromoMsg(text, kind) {
+      const el = document.getElementById("promoMsg");
+      if (!el) return;
+      el.style.color = kind === "ok" ? "#2f9e44" : "#e03131";
+      el.textContent = text;
+    }
+
+    function renderPromos() {
+      const rows = adminState.promos || [];
+      const s = adminState.promoSummary || {};
+      const tbody = document.getElementById("promoTbody");
+      if (!tbody) return;
+
+      const countEl = document.getElementById("promoCount");
+      if (countEl) countEl.textContent = rows.length;
+
+      if (!rows.length) {
+        tbody.innerHTML = `<tr><td colspan="8"><div class="empty"><strong>No promo codes yet</strong>Create one above. The discount applies the moment you approve a user's payment, not before.</div></td></tr>`;
+        return;
+      }
+
+      const now = Date.now();
+      const cycleLabel = c => ({ monthly: "1m", "3month": "3m", "6month": "6m", yearly: "1y" })[c] || c;
+      tbody.innerHTML = rows.map(p => {
+        const cycles = Array.isArray(p.cycles) && p.cycles.length
+          ? p.cycles.join(", ").replace(/monthly|3month|6month|yearly/g, cycleLabel)
+          : "Any";
+        const discount = p.type === "amount"
+          ? `$${Number(p.value).toLocaleString("en-US", { maximumFractionDigits: 2 })} off`
+          : `${Number(p.value)}% off`;
+        const expires = p.expiresAt
+          ? new Date(p.expiresAt).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })
+          : "never";
+        const expired = p.expiresAt && new Date(p.expiresAt).getTime() <= now;
+        const maxed = Number(p.maxUses) > 0 && Number(p.uses) >= Number(p.maxUses);
+        const usable = p.active && !expired && !maxed;
+
+        const status = !p.active
+          ? `<span style="color:#e03131;font-weight:600">Off</span>`
+          : expired
+            ? `<span style="color:#e03131;font-weight:600">Expired</span>`
+            : maxed
+              ? `<span style="color:#e03131;font-weight:600">Used up</span>`
+              : `<span style="color:#2f9e44;font-weight:600">Live</span>`;
+
+        const usesLabel = Number(p.maxUses) > 0 ? `${p.uses} / ${p.maxUses}` : `${p.uses}`;
+
+        return `<tr>
+          <td><strong>${esc(p.code)}</strong></td>
+          <td>${discount}</td>
+          <td>${usesLabel}</td>
+          <td>${esc(expires)}</td>
+          <td>${status}</td>
+          <td style="color:var(--muted);font-size:12.5px;white-space:nowrap">${esc(cycles)}</td>
+          <td style="color:var(--muted);font-size:13px">${esc(p.note || "")}</td>
+          <td style="white-space:nowrap">
+            <button class="btn secondary" type="button" style="width:auto;min-height:34px;padding:0 12px;font-size:12.5px" onclick="togglePromoCode('${esc(p.code)}', ${usable})">${usable ? "Deactivate" : "Activate"}</button>
+            <button class="btn secondary" type="button" style="width:auto;min-height:34px;padding:0 12px;font-size:12.5px;color:#e03131" onclick="deletePromoCode('${esc(p.code)}')">Delete</button>
+          </td>
+        </tr>`;
+      }).join("");
+    }
+
+    function bindPromoCycleChips() {
+      document.querySelectorAll(".promo-cycle-chip").forEach(chip => {
+        chip.addEventListener("click", function () {
+          const box = this.querySelector("input.promoCycle");
+          if (!box) return;
+          setTimeout(() => this.classList.toggle("active", box.checked), 0);
+        });
+      });
+    }
+    bindPromoCycleChips();
+
+    async function createPromoCode() {
+      const code = document.getElementById("promoCodeInput").value.trim();
+      const type = document.getElementById("promoType").value;
+      const value = Number(document.getElementById("promoValue").value);
+      const expiresRaw = document.getElementById("promoExpires").value;
+      const maxUsesRaw = document.getElementById("promoMaxUses").value.trim();
+      const note = document.getElementById("promoNote").value.trim();
+      const cycles = Array.from(document.querySelectorAll(".promoCycle:checked")).map(c => c.value);
+
+      if (!code) return setPromoMsg("Enter a code first.", "bad");
+      if (!(value > 0)) return setPromoMsg("Enter a discount value greater than 0.", "bad");
+
+      const expiresAt = expiresRaw ? new Date(`${expiresRaw}T23:59:59`).toISOString() : "";
+
+      const res = await fetch("/api/admin/promos", {
+        method: "POST",
+        headers: { "content-type": "application/json", "accept": "application/json" },
+        body: JSON.stringify({
+          code,
+          type,
+          value,
+          expiresAt,
+          maxUses: maxUsesRaw ? Number(maxUsesRaw) : 0,
+          cycles,
+          note
+        })
+      });
+
+      const json = await res.json().catch(() => ({}));
+      if (res.status === 401 || res.status === 403) { window.location.href = "/auth"; return; }
+      if (!res.ok || !json.ok) return setPromoMsg(json.error || "Could not create that code.", "bad");
+
+      document.getElementById("promoCodeInput").value = "";
+      document.getElementById("promoValue").value = "";
+      document.getElementById("promoExpires").value = "";
+      document.getElementById("promoMaxUses").value = "";
+      document.getElementById("promoNote").value = "";
+      setPromoMsg(`Code ${json.promo.code} created and live.`, "ok");
+      await loadPromos();
+    }
+
+    async function togglePromoCode(code, currentlyActive) {
+      const res = await fetch(`/api/admin/promos/${encodeURIComponent(code)}/toggle`, {
+        method: "POST",
+        headers: { "content-type": "application/json", "accept": "application/json" },
+        body: JSON.stringify({ active: !currentlyActive })
+      });
+
+      const json = await res.json().catch(() => ({}));
+      if (res.status === 401 || res.status === 403) { window.location.href = "/auth"; return; }
+      if (!res.ok || !json.ok) { setPromoMsg(json.error || "Could not update that code.", "bad"); return; }
+      setPromoMsg(`${code} is now ${json.promo.active ? "live" : "deactivated"}.`, "ok");
+      await loadPromos();
+    }
+
+    async function deletePromoCode(code) {
+      if (!window.confirm(`Delete promo code ${code}? This cannot be undone.`)) return;
+
+      const res = await fetch(`/api/admin/promos/${encodeURIComponent(code)}/delete`, {
+        method: "POST",
+        headers: { "content-type": "application/json", "accept": "application/json" },
+        body: "{}"
+      });
+
+      const json = await res.json().catch(() => ({}));
+      if (res.status === 401 || res.status === 403) { window.location.href = "/auth"; return; }
+      if (!res.ok || !json.ok) { setPromoMsg(json.error || "Could not delete that code.", "bad"); return; }
+      setPromoMsg(`${code} deleted.`, "ok");
+      await loadPromos();
+    }
+
+    async function tryFetchJson(urls) {
+      for (const url of urls) {
+        try {
+          const res = await fetch(url, {
+            headers: { "accept": "application/json" }
+          });
+
+          if (res.status === 401 || res.status === 403) {
+            window.location.href = "/auth";
+            return null;
+          }
+
+          if (!res.ok) continue;
+
+          const json = await res.json();
+          return json;
+        } catch {
+          continue;
+        }
+      }
+
+      return null;
+    }
+
+    function renderOverview() {
+      const users = adminState.users || [];
+      const jobs = adminState.jobs || [];
+      const overview = adminState.overview || {};
+
+      const totalUsers =
+        overview.totalUsers ??
+        overview.users ??
+        users.length ??
+        0;
+
+      const totalJobs =
+        overview.totalJobs ??
+        overview.jobs ??
+        jobs.length ??
+        0;
+
+      const totalLeads =
+        overview.totalLeads ??
+        overview.leads ??
+        jobs.reduce((sum, job) => sum + Number(job.leadsCount || job.leads?.length || job.diagnostics?.leadsSaved || 0), 0);
+
+const smtpConnected =
+    overview.smtpConnected ??
+    overview.smtp_connected ??
+    overview.smtpConnectedCount ??
+    overview.usersWithSmtp ??
+    users.filter(u => (u.gmailSender && (u.gmailSender.smtpUser || u.gmailSender.smtpPass || u.gmailSender.email)) || u.smtpConfigured || u.senderConfigured || u.gmailConfigured).length;
+
+      totalUsersEl().textContent = totalUsers;
+      totalJobsEl().textContent = totalJobs;
+      totalLeadsEl().textContent = totalLeads;
+      smtpConnectedEl().textContent = smtpConnected;
+
+      const storedLeads = Number(overview.storedLeads) || 0;
+      const storedJobs = Number(overview.storedJobs) || 0;
+      const storedLeadsEl = document.getElementById("storedLeads");
+      const storedJobsEl = document.getElementById("storedJobs");
+
+      if (storedLeadsEl) {
+        storedLeadsEl.textContent = `In store now: ${storedLeads} (leads expire after 24h)`;
+      }
+
+      if (storedJobsEl) {
+        storedJobsEl.textContent = `In store now: ${storedJobs} (jobs expire after 24h)`;
+      }
+
+      const platformSmtpConfigured = overview.platformSmtpConfigured ?? overview.smtpConfigured;
+      const platformTag = document.getElementById("platformSmtpTag");
+
+      if (platformSmtpConfigured === true) {
+        platformTag.className = "tag ok";
+        platformTag.textContent = "Configured";
+      } else if (platformSmtpConfigured === false) {
+        platformTag.className = "tag red";
+        platformTag.textContent = "Missing";
+      } else {
+        platformTag.className = "tag warn";
+        platformTag.textContent = "Unknown";
+      }
+
+      const adminEmail = overview.adminEmail || overview.email || localStorage.getItem("cf_last_email");
+      if (adminEmail) {
+        document.getElementById("adminEmailText").textContent = `Logged in as ${adminEmail}.`;
+      }
+    }
+
+    function renderUsers() {
+      const tbody = document.getElementById("usersTbody");
+      const query = document.getElementById("userSearch").value.trim().toLowerCase();
+      const role = document.getElementById("roleFilter").value;
+
+      const users = (adminState.users || []).filter(user => {
+        const email = String(user.email || user.userEmail || "").toLowerCase();
+        const userRole = String(user.role || "user").toLowerCase();
+
+        if (query && !email.includes(query)) return false;
+        if (role && userRole !== role) return false;
+
+        return true;
+      });
+
+      if (!users.length) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="8">
+              <div class="empty">
+                <strong>No users found</strong>
+                Try clearing filters or refresh admin data.
+              </div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = users.map(user => {
+        const email = user.email || user.userEmail || "unknown@example.com";
+        const role = user.role || "user";
+        const plan = user.plan || user.subscriptionPlan || (role === "admin" ? "admin" : "free");
+        const requested = user.planRequest || "";
+        const limit = user.dailyLeadLimit ?? user.leadLimit ?? (role === "admin" ? "Unlimited" : 10);
+        const smtp = user.smtpConfigured || user.senderConfigured || user.gmailConfigured;
+        const created = user.createdAt || user.created || user.updatedAt || "—";
+        const BILLING_LABEL = {
+          monthly: "monthly",
+          yearly: "yearly",
+          "3month": "3-month prepay",
+          "6month": "6-month prepay"
+        };
+        const requestTag = requested
+          ? `<span class="tag orange">${esc(requested)} &middot; ${esc(BILLING_LABEL[user.planBilling] || user.planBilling || "monthly")}</span>`
+          : `<span class="muted small">&mdash;</span>`;
+
+        // Must match PLANS in src/plans.js. The 3- and 6-month prepay plans are
+        // separate ids, so they need their own entries here or the operator
+        // cannot grant the plan the customer actually paid for.
+        const plans = [
+          ["free", "Free"],
+          ["starter", "Starter"],
+          ["starter3", "Starter (3 Months)"],
+          ["starter6", "Starter (6 Months)"],
+          ["pro", "Pro"],
+          ["pro3", "Pro (3 Months)"],
+          ["pro6", "Pro (6 Months)"],
+          ["agency", "Agency"],
+          ["agency3", "Agency (3 Months)"],
+          ["agency6", "Agency (6 Months)"]
+        ];
+
+        const planOptions = plans
+          .map(([value, label]) =>
+            `<option value="${value}" ${String(plan) === value ? "selected" : ""}>${label}</option>`
+          )
+          .join("");
+
+        const durations = [
+          ["1", "1 Day"],
+          ["7", "7 Days"],
+          ["15", "15 Days"],
+          ["30", "1 Month (30 Days)"],
+          ["90", "3 Months (90 Days)"],
+          ["180", "6 Months (180 Days)"],
+          ["365", "1 Year (365 Days)"]
+        ];
+        /*
+          Default the term from the plan that was paid for. Without this a 6-month
+          prepay fell back to 30 days by default, so the customer paid for half a
+          year and received a month.
+        */
+        const TERM_DAYS = { starter3: "90", starter6: "180", pro3: "90", pro6: "180", starter: "30", pro: "30", agency: "30", agency3: "90", agency6: "180" };
+        const defaultDur = TERM_DAYS[String(requested)] || TERM_DAYS[String(plan)] || "30";
+        const currentDur = String(user.planDurationDays || defaultDur);
+        const durationOptions = durations
+          .map(([value, label]) =>
+            `<option value="${value}" ${currentDur === value ? "selected" : ""}>${label}</option>`
+          )
+          .join("");
+
+        const isPaidPlan = ["starter", "starter3", "starter6", "pro", "pro3", "pro6", "agency", "agency3", "agency6"].includes(String(plan));
+
+        const planActions = `
+          <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-start">
+            <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+              <select onchange="setUserPlanWithDuration('${esc(user.id)}', this)" title="Change this user's plan" style="padding:8px 12px !important;border:2px solid #f69251 !important;border-radius:10px !important;font-size:13px !important;font-weight:600 !important;background:#fff7f0 !important;color:#000 !important;cursor:pointer !important;min-width:104px !important;appearance:auto !important;-webkit-appearance:menulist !important;box-shadow:none !important">
+                ${planOptions}
+              </select>
+              ${isPaidPlan ? `
+                <select data-role="duration" title="Access duration" style="padding:8px 12px !important;border:2px solid #f69251 !important;border-radius:10px !important;font-size:13px !important;font-weight:600 !important;background:#fff7f0 !important;color:#000 !important;cursor:pointer !important;min-width:96px !important;appearance:auto !important;-webkit-appearance:menulist !important;box-shadow:none !important">
+                  ${durationOptions}
+                </select>
+              ` : ""}
+            </div>
+            ${["starter", "starter3", "starter6", "pro", "pro3", "pro6", "agency", "agency3", "agency6"].includes(requested) ? `<button class="btn secondary" type="button" onclick="approvePlan(this, '${esc(requested)}')">Approve ${esc(requested)}</button>` : ""}
+          </div>
+        `;
+
+        const expiry = user.planExpiresAt
+          ? `<span class="muted small">${esc(formatDate(user.planExpiresAt))}</span>`
+          : `<span class="muted small">—</span>`;
+
+        return `
+          <tr data-user-id="${esc(user.id)}">
+            <td>
+              <div class="primary-text">${esc(email)}</div>
+              <div class="muted small">${esc(user.name || user.displayName || "")}</div>
+            </td>
+            <td>${roleTag(role)}</td>
+            <td><span class="tag orange">${esc(plan)}</span></td>
+            <td>${expiry}</td>
+            <td>${requestTag}</td>
+            <td><div>${esc(limit)} / day</div></td>
+            <td>${smtp ? `<span class="tag ok">Connected</span>` : `<span class="tag warn">Not connected</span>`}</td>
+            <td><span class="muted small">${esc(formatDate(created))}</span></td>
+            <td>${planActions}</td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    function renderJobs() {
+      const tbody = document.getElementById("jobsTbody");
+      const jobs = adminState.jobs || [];
+
+      if (!jobs.length) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="5">
+              <div class="empty">
+                <strong>No jobs found</strong>
+                User lead research jobs will appear here.
+              </div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = jobs.slice(0, 25).map(job => {
+        const id = job.id || job.jobId || "—";
+        const email = job.email || job.userEmail || job.user?.email || "—";
+        const name = [job.niche, job.location].filter(Boolean).join(" · ") || id;
+        const status = job.status || "unknown";
+        const leads = job.leadsCount ?? job.leads?.length ?? job.diagnostics?.leadsSaved ?? 0;
+        const created = job.createdAt || job.created || job.startedAt || "—";
+
+        return `
+          <tr>
+            <td>
+              <div class="primary-text">${esc(name)}</div>
+              <div class="muted small">${esc(id)}</div>
+            </td>
+            <td><span class="muted small">${esc(email)}</span></td>
+            <td>${statusTag(status)}</td>
+            <td>${esc(leads)}</td>
+            <td><span class="muted small">${esc(formatDate(created))}</span></td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    function roleTag(role) {
+      const value = String(role || "user").toLowerCase();
+
+      if (value === "admin") {
+        return `<span class="tag ok">Admin</span>`;
+      }
+
+      return `<span class="tag blue">User</span>`;
+    }
+
+    function statusTag(status) {
+      const value = String(status || "unknown").toLowerCase();
+
+      if (["completed", "done", "success"].includes(value)) {
+        return `<span class="tag ok">${esc(formatStatus(status))}</span>`;
+      }
+
+      if (["failed", "error", "rejected"].includes(value)) {
+        return `<span class="tag red">${esc(formatStatus(status))}</span>`;
+      }
+
+      if (["processing", "running", "started", "searching"].includes(value)) {
+        return `<span class="tag orange">${esc(formatStatus(status))}</span>`;
+      }
+
+      return `<span class="tag warn">${esc(formatStatus(status))}</span>`;
+    }
+
+    function showSoftError(text) {
+      const box = document.getElementById("errorBox");
+      box.style.display = "block";
+      box.textContent = text;
+    }
+
+    function clearError() {
+      const box = document.getElementById("errorBox");
+      box.style.display = "none";
+      box.textContent = "";
+    }
+
+    async function logout() {
+      await fetch("/api/auth/logout", { method: "POST" });
+      localStorage.removeItem("cf_last_email");
+      window.location.href = "/auth";
+    }
+
+    async function approvePlan(btn, plan) {
+      const tr = btn ? btn.closest("tr") : null;
+      const userId = tr ? tr.getAttribute("data-user-id") : "";
+      const durSel = tr && tr.querySelector('[data-role="duration"]');
+      const durationDays = durSel ? parseInt(durSel.value, 10) : 30;
+      const durLabel = durSel && durSel.options[durSel.selectedIndex] ? durSel.options[durSel.selectedIndex].text.toLowerCase() : `${durationDays} days`;
+      if (!window.confirm(`Approve ${plan} plan for this user for ${durLabel}? Access auto-reverts to Free when it expires.`)) return;
+
+      try {
+        const res = await fetch(`/api/admin/users/${encodeURIComponent(userId)}/approve-plan`, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ plan, durationDays })
+        });
+
+        const json = await res.json();
+
+        if (!res.ok) {
+          alert(json.error || "Could not approve plan.");
+          return;
+        }
+
+        const local = json.localPkr ? ` at $${json.paidAmount ?? json.listPrice} (≈ ${json.localPkr})` : "";
+        alert(`${plan} plan activated${local}. User now gets ${plan} dashboard access.`);
+        loadUsers();
+      } catch (err) {
+        alert("Could not approve plan.");
+      }
+    }
+
+    async function setUserPlan(userId, plan, durationDays = 30) {
+      const label = String(plan).charAt(0).toUpperCase() + String(plan).slice(1);
+      const paid = ["starter", "starter3", "starter6", "pro", "pro3", "pro6", "agency", "agency3", "agency6"].includes(String(plan));
+      const confirmMsg = paid
+        ? `Set ${label} plan for this user for ${durationDays} day(s)? Access auto-reverts to Free when it expires.`
+        : `Set ${label} plan for this user? This frees the user's open plan request.`;
+      if (!window.confirm(confirmMsg)) return;
+
+      try {
+        const res = await fetch(`/api/admin/users/${encodeURIComponent(userId)}/plan`, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ plan, durationDays: paid ? Number(durationDays) : 0 })
+        });
+
+        const json = await res.json();
+
+        if (!res.ok) {
+          alert(json.error || "Could not set plan.");
+          loadUsers();
+          return;
+        }
+
+        alert(paid ? `${label} plan set for ${durationDays} day(s).` : `${label} plan set.`);
+        loadUsers();
+      } catch (err) {
+        alert("Could not set plan.");
+        loadUsers();
+      }
+    }
+
+    function setUserPlanWithDuration(userId, planSelect) {
+      const row = planSelect.closest("div");
+      const container = row.parentElement;
+      const durSel = container && container.querySelector('[data-role="duration"]');
+      const durationDays = durSel ? parseInt(durSel.value, 10) : 30;
+      const plan = planSelect.value;
+      if (["free"].includes(plan)) {
+        setUserPlan(userId, plan, 0);
+      } else {
+        setUserPlan(userId, plan, durationDays);
+      }
+    }
+
+    function formatStatus(value = "") {
+      return String(value)
+        .replace(/([A-Z])/g, " $1")
+        .replace(/_/g, " ")
+        .replace(/-/g, " ")
+        .replace(/^./, c => c.toUpperCase());
+    }
+
+    function formatDate(value) {
+      if (!value || value === "Sample" || value === "Super admin") return value || "—";
+
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return value;
+
+      return date.toLocaleString();
+    }
+
+    function esc(v) {
+      return String(v ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function totalUsersEl() {
+      return document.getElementById("totalUsers");
+    }
+
+    function totalJobsEl() {
+      return document.getElementById("totalJobs");
+    }
+
+    function totalLeadsEl() {
+      return document.getElementById("totalLeads");
+    }
+
+    function smtpConnectedEl() {
+      return document.getElementById("smtpConnected");
+    }
+
+    /* ================= Blog management ================= */
+
+    function blogSetMsg(text, isErr) {
+      const el = document.getElementById("blogMsg");
+      if (!el) return;
+      el.textContent = text || "";
+      el.style.color = isErr ? "#c92a2a" : "#0f766e";
+    }
+
+    async function loadBlogs() {
+      const json = await tryFetchJson(["/api/admin/blog"]);
+
+      adminState.blogs = (json && json.posts) || [];
+      renderBlogs();
+    }
+
+    function renderBlogs() {
+      const tbody = document.getElementById("blogTbody");
+      if (!tbody) return;
+
+      const rows = adminState.blogs || [];
+
+      if (!rows.length) {
+        tbody.innerHTML = `<tr><td colspan="6"><div class="empty"><strong>No articles yet</strong>Publish your first article — it appears on /blog and the landing page.</div></td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = rows.map(p => {
+        const date = p.updatedAt
+          ? new Date(p.updatedAt).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })
+          : "";
+        const status = p.status === "published"
+          ? `<span class="tag ok">Published</span>`
+          : `<span class="tag warn">Draft</span>`;
+        const tags = (p.tags || [])
+          .map(t => `<span style="font-size:11.5px;color:#b14d12;background:#fdeee2;border-radius:999px;padding:2px 8px;margin-right:4px;white-space:nowrap">${esc(t)}</span>`)
+          .join("");
+
+        return `<tr>
+          <td><strong>${esc(p.title)}</strong><br><span style="color:var(--muted);font-size:12px">${esc(p.excerpt || "").slice(0, 70)}</span></td>
+          <td>${status}</td>
+          <td style="max-width:240px">${tags || "—"}</td>
+          <td>${esc(date)}</td>
+          <td><a href="/blog/${esc(p.slug)}" target="_blank" style="color:#d9641f">/blog/${esc(p.slug)}</a></td>
+          <td style="white-space:nowrap">
+            <button class="btn small" type="button" onclick="openBlogEditor('${p.id}')">Edit</button>
+            <button class="btn small soft-danger" type="button" onclick="deleteBlog('${p.id}')">Delete</button>
+          </td>
+        </tr>`;
+      }).join("");
+    }
+
+    function openBlogEditor(id) {
+      blogSetMsg("");
+
+      const post = id ? adminState.blogs.find(p => p.id === id) : null;
+      blogEdit = {
+        id: post ? post.id : "",
+        blocks: post ? (post.blocks || []).map(b => ({ ...b })) : []
+      };
+
+      document.getElementById("blogTitle").value = post ? post.title : "";
+      document.getElementById("blogSlug").value = post ? post.slug : "";
+      document.getElementById("blogMetaDescription").value = post ? (post.metaDescription || "") : "";
+      document.getElementById("blogExcerpt").value = post ? (post.excerpt || "") : "";
+      document.getElementById("blogAuthor").value = post ? (post.author || "Leadmoz") : "Leadmoz";
+      document.getElementById("blogTags").value = post ? (post.tags || []).join(", ") : "";
+      document.getElementById("blogStatus").value = post ? post.status : "draft";
+      document.getElementById("blogCoverImage").value = post ? (post.coverImage || "") : "";
+      document.getElementById("blogCoverAlt").value = post ? (post.coverAlt || "") : "";
+
+      const prev = document.getElementById("blogCoverPreview");
+      if (post && post.coverImage) {
+        prev.src = post.coverImage;
+        prev.style.display = "block";
+      } else {
+        prev.removeAttribute("src");
+        prev.style.display = "none";
+      }
+
+      document.getElementById("blogListWrap").style.display = "none";
+      document.getElementById("blogEditorWrap").style.display = "block";
+
+      blogRenderBlocks();
+      document.getElementById("blogTitle").focus();
+    }
+
+    function cancelBlogEditor() {
+      document.getElementById("blogEditorWrap").style.display = "none";
+      document.getElementById("blogListWrap").style.display = "block";
+      blogSetMsg("");
+    }
+
+    function blogAddBlock(type) {
+      blogEdit.blocks.push({ type, text: "", src: "", alt: "" });
+      blogRenderBlocks();
+    }
+
+    function blogRemoveBlock(index) {
+      blogEdit.blocks.splice(index, 1);
+      blogRenderBlocks();
+    }
+
+    function blogRenderBlocks() {
+      const wrap = document.getElementById("blogBlocks");
+      if (!wrap) return;
+
+      if (!blogEdit.blocks.length) {
+        wrap.innerHTML = `<div style="color:var(--muted);font-size:13px;padding:6px 0">No content yet — add a heading, paragraph, or image below.</div>`;
+        return;
+      }
+
+      wrap.innerHTML = "";
+
+      blogEdit.blocks.forEach((b, i) => {
+        const row = document.createElement("div");
+        row.className = "blog-block";
+
+        const top = document.createElement("div");
+        top.className = "blog-block-top";
+
+        const sel = document.createElement("select");
+        ["heading", "paragraph", "image"].forEach(t => {
+          const opt = document.createElement("option");
+          opt.value = t;
+          opt.textContent = t.charAt(0).toUpperCase() + t.slice(1);
+          opt.selected = b.type === t;
+          sel.appendChild(opt);
+        });
+        sel.onchange = () => { blogEdit.blocks[i].type = sel.value; blogRenderBlocks(); };
+        top.appendChild(sel);
+
+        const rm = document.createElement("button");
+        rm.className = "btn small soft-danger";
+        rm.type = "button";
+        rm.textContent = "Delete";
+        rm.onclick = () => blogRemoveBlock(i);
+        top.appendChild(rm);
+
+        row.appendChild(top);
+
+        if (b.type === "heading") {
+          const input = document.createElement("input");
+          input.type = "text";
+          input.maxLength = 2000;
+          input.placeholder = "Section heading";
+          input.value = b.text;
+          input.oninput = () => { blogEdit.blocks[i].text = input.value; };
+          row.appendChild(input);
+        } else if (b.type === "paragraph") {
+          const ta = document.createElement("textarea");
+          ta.rows = 4;
+          ta.placeholder = "Paragraph text. Tip: keep each paragraph to a few sentences for readability.";
+          ta.value = b.text;
+          ta.oninput = () => { blogEdit.blocks[i].text = ta.value; };
+          row.appendChild(ta);
+        } else {
+          const urlRow = document.createElement("div");
+          urlRow.className = "split";
+
+          const url = document.createElement("input");
+          url.type = "text";
+          url.placeholder = "Image URL";
+          url.value = b.src;
+          url.oninput = () => { blogEdit.blocks[i].src = url.value; };
+          urlRow.appendChild(url);
+
+          const file = document.createElement("input");
+          file.type = "file";
+          file.accept = "image/jpeg,image/png,image/webp,image/gif";
+          file.className = "blog-file";
+          file.onchange = () => blogUploadImage(file, "block", i);
+          urlRow.appendChild(file);
+
+          row.appendChild(urlRow);
+
+          const altWrap = document.createElement("div");
+          altWrap.className = "split";
+
+          const alt = document.createElement("input");
+          alt.type = "text";
+          alt.placeholder = "Image alt text (for accessibility and SEO)";
+          alt.value = b.alt;
+          alt.oninput = () => { blogEdit.blocks[i].alt = alt.value; };
+          altWrap.appendChild(alt);
+
+          row.appendChild(altWrap);
+
+          if (b.src) {
+            const prev = document.createElement("img");
+            prev.className = "blog-block-preview";
+            prev.src = b.src;
+            prev.alt = "image preview";
+            row.appendChild(prev);
+          }
+        }
+
+        wrap.appendChild(row);
+      });
+    }
+
+    async function blogUploadImage(fileInput, mode, index) {
+      const file = fileInput && fileInput.files && fileInput.files[0];
+      if (!file) return;
+
+      const res = await fetch("/api/admin/blog/upload/image", {
+        method: "POST",
+        headers: { "Content-Type": file.type },
+        body: file
+      });
+      const json = await res.json().catch(() => ({}));
+
+      if (!res.ok || !json.ok) {
+        blogSetMsg(json.error || "Upload failed", true);
+        if (fileInput) fileInput.value = "";
+        return;
+      }
+
+      blogSetMsg("Image uploaded — it is saved when you hit Save article.");
+
+      if (mode === "cover") {
+        document.getElementById("blogCoverImage").value = json.url;
+        const prev = document.getElementById("blogCoverPreview");
+        prev.src = json.url;
+        prev.style.display = "block";
+      } else if (typeof index === "number") {
+        blogEdit.blocks[index].src = json.url;
+        blogRenderBlocks();
+      }
+
+      if (fileInput) fileInput.value = "";
+    }
+
+    function blogGatherBlocks() {
+      return blogEdit.blocks.filter(b => {
+        if (b.type === "image") return Boolean(b.src && b.src.trim());
+        return Boolean(b.text && b.text.trim());
+      });
+    }
+
+    async function saveBlog() {
+      const title = document.getElementById("blogTitle").value.trim();
+      if (!title) { blogSetMsg("Title is required", true); return; }
+
+      const tags = document.getElementById("blogTags").value
+        .split(",").map(t => t.trim()).filter(Boolean);
+
+      const payload = {
+        title,
+        slug: document.getElementById("blogSlug").value.trim(),
+        metaDescription: document.getElementById("blogMetaDescription").value.trim(),
+        excerpt: document.getElementById("blogExcerpt").value.trim(),
+        author: document.getElementById("blogAuthor").value.trim(),
+        coverImage: document.getElementById("blogCoverImage").value.trim(),
+        coverAlt: document.getElementById("blogCoverAlt").value.trim(),
+        tags,
+        status: document.getElementById("blogStatus").value,
+        blocks: blogGatherBlocks()
+      };
+
+      const url = blogEdit.id ? `/api/admin/blog/${encodeURIComponent(blogEdit.id)}` : "/api/admin/blog";
+      const method = blogEdit.id ? "PUT" : "POST";
+
+      const res = await fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const json = await res.json().catch(() => ({}));
+
+      if (!res.ok || !json.ok) {
+        blogSetMsg(json.error || "Save failed", true);
+        return;
+      }
+
+      blogSetMsg("Article saved.");
+      await loadBlogs();
+      cancelBlogEditor();
+    }
+
+    async function deleteBlog(id) {
+      if (!confirm("Delete this article? This cannot be undone.")) return;
+
+      const res = await fetch(`/api/admin/blog/${encodeURIComponent(id)}`, { method: "DELETE" });
+      if (!res.ok) {
+        blogSetMsg("Delete failed", true);
+        return;
+      }
+
+      blogSetMsg("Article deleted.");
+      await loadBlogs();
+    }
+
+    /* ===== Email campaigns (marketing drizzle + template editor) ===== */
+    let emailTemplates = [];
+    let emailSelectedId = "";
+    let emailCampaignPoll = null;
+    let emailCadence = { drizzleMinutes: 15, batchSize: 2 };
+    let emailCadenceDirty = false;
+
+    function emailSetMsg(id, msg, isError) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.textContent = msg || "";
+      el.style.color = isError ? "var(--red)" : "var(--green)";
+    }
+
+    async function loadEmailTemplates() {
+      try {
+        const res = await fetch("/api/admin/email-templates");
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || !json.ok) return;
+        emailTemplates = json.templates || [];
+        if (!emailSelectedId && emailTemplates.length) emailSelectedId = emailTemplates[0].id;
+        renderEmailTemplateList();
+        fillEmailTemplateEditor();
+      } catch (err) { /* section is non-critical */ }
+    }
+
+    function emailCampaignStatusTag(status) {
+      if (status === "completed") return "ok";
+      if (status === "cancelled" || status === "failed") return "red";
+      if (status === "paused") return "warn";
+      return "orange";
+    }
+
+    function emailCampaignStatusPill(status) {
+      const label = status === "sending" ? "sending now" : status;
+      return `<span class="tag ${emailCampaignStatusTag(status)}">${esc(label)}</span>`;
+    }
+
+    function emailCampaignWhen(value) {
+      const s = String(value || "");
+      if (!s) return "—";
+      return esc(s.slice(0, 16).replace("T", " "));
+    }
+
+    function renderEmailTemplateList() {
+      const host = document.getElementById("tplList");
+      if (!host) return;
+      const countEl = document.getElementById("tplCount");
+      if (countEl) countEl.textContent = emailTemplates.length;
+      if (!emailTemplates.length) {
+        host.innerHTML = '<div class="ec-empty">No templates yet — create one below.</div>';
+        return;
+      }
+      host.innerHTML = emailTemplates.map(t => {
+        const initial = (t.name || "?").trim().charAt(0).toUpperCase();
+        const active = t.id === emailSelectedId;
+        return `<div class="ec-tpl ${active ? "active" : ""}" onclick="selectEmailTemplate('${esc(t.id)}')">
+          <div class="ec-tpl-icon">${esc(initial)}</div>
+          <div class="ec-tpl-meta">
+            <div class="ec-tpl-name">${esc(t.name)}</div>
+            <div class="ec-tpl-date">${esc(String(t.updatedAt || "").slice(0, 10))} · ${esc(String(t.subject || "").slice(0, 44))}</div>
+          </div>
+          <div class="ec-tpl-check">✓</div>
+        </div>`;
+      }).join("");
+    }
+
+    function fillEmailTemplateEditor() {
+      const t = emailTemplates.find(x => x.id === emailSelectedId);
+      document.getElementById("tplName").value = t ? t.name : "";
+      document.getElementById("tplSubject").value = t ? t.subject : "";
+      document.getElementById("tplBody").value = t ? t.body : "";
+      const title = document.getElementById("tplEditorTitle");
+      if (title) title.textContent = t ? `Editing · ${t.name}` : "New template";
+    }
+
+    function selectEmailTemplate(id) {
+      emailSelectedId = id;
+      renderEmailTemplateList();
+      fillEmailTemplateEditor();
+      emailSetMsg("tplMsg", "");
+    }
+
+    function newEmailTemplate() {
+      emailSelectedId = "";
+      renderEmailTemplateList();
+      fillEmailTemplateEditor();
+      emailSetMsg("tplMsg", "");
+    }
+
+    async function saveEmailTemplate() {
+      const name = document.getElementById("tplName").value.trim();
+      const subject = document.getElementById("tplSubject").value.trim();
+      const body = document.getElementById("tplBody").value.trim();
+      if (!subject || !body) return emailSetMsg("tplMsg", "Subject and body are required.", true);
+
+      const url = emailSelectedId
+        ? `/api/admin/email-templates/${encodeURIComponent(emailSelectedId)}`
+        : "/api/admin/email-templates";
+      const res = await fetch(url, {
+        method: emailSelectedId ? "PUT" : "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name || "Untitled template", subject, body })
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || !json.ok) return emailSetMsg("tplMsg", json.error || "Save failed", true);
+
+      emailSelectedId = json.template.id;
+      emailSetMsg("tplMsg", "Template saved.");
+      await loadEmailTemplates();
+    }
+
+    function updateCadenceNote() {
+      const gapEl = document.getElementById("ecGap");
+      const batchEl = document.getElementById("ecBatch");
+      const note = document.getElementById("ecCadenceNote");
+      if (!gapEl || !batchEl || !note) return;
+
+      const gap = Number(gapEl.value) || 15;
+      const batch = Number(batchEl.value) || 1;
+      const perHour = Math.round((batch * 60) / gap);
+      const perDay = perHour * 24;
+
+      emailCadenceDirty = gap !== emailCadence.drizzleMinutes || batch !== emailCadence.batchSize;
+
+      const warning = perDay > 300
+        ? " <b>That is high for a shared mail provider</b> — watch for throttle or bounce errors."
+        : "";
+      note.innerHTML = `<b>${perHour}/hour</b> · ${perDay}/day. Every ${gap} minutes the queue releases ${batch} email${batch === 1 ? "" : "s"} at the same time.${warning}`;
+    }
+
+    function applyCadenceSettings(settings) {
+      if (!settings || emailCadenceDirty) return;
+      emailCadence = { drizzleMinutes: Number(settings.drizzleMinutes), batchSize: Number(settings.batchSize) };
+
+      const gapEl = document.getElementById("ecGap");
+      const batchEl = document.getElementById("ecBatch");
+      if (!gapEl || !batchEl) return;
+
+      /* The dropdowns carry the sane range; add a value if the server holds one
+         outside it, so the control never silently shows the wrong cadence. */
+      if (![...gapEl.options].some(o => Number(o.value) === emailCadence.drizzleMinutes)) {
+        gapEl.add(new Option(`${emailCadence.drizzleMinutes} minutes`, String(emailCadence.drizzleMinutes)));
+      }
+      if (![...batchEl.options].some(o => Number(o.value) === emailCadence.batchSize)) {
+        batchEl.add(new Option(`${emailCadence.batchSize} at once`, String(emailCadence.batchSize)));
+      }
+
+      gapEl.value = String(emailCadence.drizzleMinutes);
+      batchEl.value = String(emailCadence.batchSize);
+      updateCadenceNote();
+    }
+
+    async function saveCampaignCadence() {
+      const drizzleMinutes = Number(document.getElementById("ecGap").value);
+      const batchSize = Number(document.getElementById("ecBatch").value);
+
+      const res = await fetch("/api/admin/email-campaign-settings", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ drizzleMinutes, batchSize })
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || !json.ok) return emailSetMsg("campaignMsg", json.error || "Could not save cadence", true);
+
+      emailCadenceDirty = false;
+      applyCadenceSettings(json.settings);
+      emailSetMsg("campaignMsg", `Cadence saved — up to ${json.settings.batchSize} email(s) every ${json.settings.drizzleMinutes} minutes (~${json.perHour}/hour). Applies to running campaigns too.`);
+    }
+
+    function jumpToCampaignsCard() {
+      const target = document.getElementById("newBroadcastPanel") || document.getElementById("emailCampaignsCard");
+      if (!target) return;
+      target.scrollIntoView({ behavior: "smooth", block: "center" });
+      const select = document.getElementById("campaignSegment");
+      if (select) setTimeout(() => { try { select.focus({ preventScroll: true }); } catch (e) {} }, 400);
+    }
+
+    function jumpToBroadcast() {
+      const panel = document.getElementById("newBroadcastPanel");
+      if (panel) panel.scrollIntoView({ behavior: "smooth", block: "center" });
+
+      const select = document.getElementById("campaignSegment");
+      if (select) setTimeout(() => { try { select.focus({ preventScroll: true }); } catch (e) {} }, 350);
+
+      if (!emailTemplates.length) {
+        emailSetMsg("campaignMsg", "No saved template yet — write one on the left and click Save template first.", true);
+      } else if (!emailSelectedId) {
+        emailSetMsg("campaignMsg", "Pick a template on the left (Step 1), then press Start broadcast.", true);
+      }
+    }
+
+    async function sendBulkCampaign() {
+      const segment = document.getElementById("campaignSegment").value;
+      const segLabel = segment === "free" ? "Free Users Only" : segment === "paid" ? "Paid Users Only" : "All Users";
+      const tpl = emailTemplates.find(t => t.id === emailSelectedId);
+      if (!tpl) return emailSetMsg("campaignMsg", "Pick a saved template first (Step 1) — Start broadcast uses the selected template's content.", true);
+
+      const batch = emailCadence.batchSize;
+      const gap = emailCadence.drizzleMinutes;
+      const perHour = Math.round((batch * 60) / gap);
+      if (!confirm(`Queue a campaign to "${segLabel}" using "${tpl.name}"?\n\nSubject: ${tpl.subject}\n\nSends up to ${batch} email${batch === 1 ? "" : "s"} every ${gap} minutes (~${perHour}/hour).`)) return;
+
+      const res = await fetch("/api/admin/email-campaigns", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ templateId: tpl.id, segment })
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || !json.ok) return emailSetMsg("campaignMsg", json.error || "Could not queue campaign", true);
+
+      const skippedNote = json.skipped
+        ? `${json.skipped} recipient${json.skipped === 1 ? "" : "s"} skipped (already queued or emailed in the last 24h). `
+        : "";
+      emailSetMsg("campaignMsg", skippedNote + (json.drizzle || "Campaign queued."));
+      await loadEmailCampaigns();
+    }
+
+    async function loadEmailCampaigns() {
+      try {
+        const res = await fetch("/api/admin/email-campaigns");
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || !json.ok) return;
+        applyCadenceSettings(json.settings);
+        renderActiveCampaign(json.campaigns);
+        renderCampaignHistory(json.campaigns);
+
+        const smtpTag = document.getElementById("campaignSmtpTag");
+        if (smtpTag) {
+          if (json.smtpConfigured) {
+            smtpTag.className = "tag ok";
+            smtpTag.textContent = "SMTP live";
+          } else {
+            smtpTag.className = "tag warn";
+            smtpTag.textContent = "DEV mode · console";
+          }
+        }
+
+        const hasActive = (json.campaigns || []).some(c => c.status === "queued" || c.status === "sending");
+        if (hasActive && !emailCampaignPoll) {
+          emailCampaignPoll = setInterval(loadEmailCampaigns, 20000);
+        } else if (!hasActive && emailCampaignPoll) {
+          clearInterval(emailCampaignPoll);
+          emailCampaignPoll = null;
+        }
+      } catch (err) { /* section is non-critical */ }
+    }
+
+    function renderActiveCampaign(campaigns) {
+      const box = document.getElementById("activeCampaignBox");
+      if (!box) return;
+      const active = (campaigns || []).filter(x => ["queued", "sending", "paused"].includes(x.status));
+      if (!active.length) { box.innerHTML = ""; return; }
+
+      const perTick = emailCadence.batchSize;
+      const header = active.length > 1
+        ? `<div class="ec-live-meta" style="margin-bottom:10px">${active.length} campaigns running side by side · ${perTick} email${perTick === 1 ? "" : "s"} released per tick, split between them</div>`
+        : "";
+
+      box.innerHTML = header + active.map(c => {
+        const pct = c.total ? Math.min(100, Math.round(((c.sent + c.failed) / c.total) * 100)) : 0;
+        let nextLine;
+        if (c.status === "paused") {
+          nextLine = "Paused — no emails will leave until resumed.";
+        } else if (c.nextSendAt) {
+          const mins = Math.max(1, Math.ceil((new Date(c.nextSendAt).getTime() - Date.now()) / 60000));
+          nextLine = `Next batch in ~${mins} min · up to ${perTick} email${perTick === 1 ? "" : "s"} · ${emailCampaignWhen(c.nextSendAt)}`;
+        } else {
+          nextLine = "Next batch scheduled shortly.";
+        }
+
+        return `<div class="ec-live">
+        <div class="ec-live-top">
+          <div style="min-width:0">
+            <div class="ec-live-subject">${esc(c.subject)}</div>
+            <div class="ec-live-meta">${esc(c.segmentLabel)} · ${c.status === "sending" ? "sending now" : esc(c.status)}</div>
+          </div>
+          ${emailCampaignStatusPill(c.status)}
+        </div>
+        <div class="ec-live-stats">
+          <div class="ec-live-stat"><b class="ok">${c.sent}</b><span>Sent</span></div>
+          <div class="ec-live-stat"><b>${c.pending}</b><span>Pending</span></div>
+          <div class="ec-live-stat"><b class="${c.failed ? "bad" : ""}">${c.failed}</b><span>Failed</span></div>
+        </div>
+        <div class="ec-bar"><i style="width:${pct}%"></i></div>
+        <div class="ec-next">${nextLine}</div>
+        <div class="ec-actions">
+          ${c.status === "paused"
+            ? `<button class="btn" type="button" onclick="emailCampaignAction('${esc(c.id)}','resume')">Resume</button>`
+            : `<button class="btn secondary" type="button" onclick="emailCampaignAction('${esc(c.id)}','pause')">Pause</button>`}
+          <button class="btn secondary" type="button" onclick="emailCampaignAction('${esc(c.id)}','cancel')">Cancel</button>
+        </div>
+      </div>`;
+      }).join("");
+    }
+
+    function renderCampaignHistory(campaigns) {
+      const tbody = document.getElementById("campaignsTbody");
+      if (!tbody) return;
+      const all = campaigns || [];
+      const countEl = document.getElementById("campCount");
+      if (countEl) countEl.textContent = all.length;
+      const rows = all.slice(0, 15);
+      if (!rows.length) {
+        tbody.innerHTML = '<tr><td colspan="6" class="ec-empty">No campaigns yet — your first broadcast will appear here.</td></tr>';
+        return;
+      }
+      tbody.innerHTML = rows.map(c => `<tr>
+        <td>${esc(c.subject)}</td>
+        <td class="muted">${esc(c.segmentLabel)}</td>
+        <td>${emailCampaignStatusPill(c.status)}</td>
+        <td>${c.sent}/${c.total}${c.failed ? ` <span style="color:var(--red);font-weight:600">(${c.failed} failed)</span>` : ""}</td>
+        <td class="muted small">${emailCampaignWhen(c.createdAt)}</td>
+        <td>${["queued", "sending", "paused"].includes(c.status) ? `<button class="btn secondary sm" type="button" onclick="emailCampaignAction('${esc(c.id)}','cancel')">Cancel</button>` : ""}</td>
+      </tr>`).join("");
+    }
+
+    async function emailCampaignAction(id, action) {
+      if (action === "cancel" && !confirm("Cancel this campaign? Pending recipients will not be emailed.")) return;
+      const res = await fetch(`/api/admin/email-campaigns/${encodeURIComponent(id)}/${action}`, { method: "POST" });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || !json.ok) return emailSetMsg("campaignMsg", json.error || "Action failed", true);
+      emailSetMsg("campaignMsg", "");
+      await loadEmailCampaigns();
+    }
+
+    loadEmailTemplates();
+    loadEmailCampaigns();
+
+    loadAdmin();
+  </script>
+
+  <script src="/nav.js"></script>
+</body>
+</html>

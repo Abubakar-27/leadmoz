@@ -1,0 +1,18 @@
+# Leadmoz
+
+> Leadmoz is an AI lead research and outreach tool that searches public business websites in a niche and city you choose, verifies contact details, scores lead quality, and drafts personalized emails, DMs, and call openers.
+
+## Key pages
+- Home: https://leadmoz.com/
+- Pricing: https://leadmoz.com/#pricing
+- Blog: https://leadmoz.com/blog
+- Free website audit: https://leadmoz.com/audit
+- Terms of Service: https://leadmoz.com/terms
+- Privacy Notice: https://leadmoz.com/privacy
+- Refund Policy: https://leadmoz.com/refund
+
+## Pricing (monthly, USD)
+- Free: $0 — 5 leads per day
+- Starter: $19 — 150 leads per day
+- Pro: $49 — 500 leads per day
+- Agency: $99 — 1000 leads per day

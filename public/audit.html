@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GBFSBH01NN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GBFSBH01NN');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Website Audit — Leadmoz</title>
+  <meta name="description" content="A free, verifiable website audit that finds measurable technical faults. Paste your site and get findings in seconds." />
+  <link rel="canonical" href="https://leadmoz.com/audit" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Leadmoz" />
+  <meta property="og:title" content="Free Website Audit — Leadmoz" />
+  <meta property="og:description" content="A free, verifiable website audit that finds measurable technical faults. Paste your site and get findings in seconds." />
+  <meta property="og:url" content="https://leadmoz.com/audit" />
+  <meta property="og:image" content="https://leadmoz.com/og-leadmoz.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Leadmoz - AI lead research and outreach for local businesses" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://leadmoz.com/og-leadmoz.png" />
+  <meta name="twitter:image:alt" content="Leadmoz - AI lead research and outreach for local businesses" />
+  <meta name="twitter:title" content="Free Website Audit — Leadmoz" />
+  <meta name="twitter:description" content="A free, verifiable website audit that finds measurable technical faults. Paste your site and get findings in seconds." />
+  <style>body{font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#0b0f14;color:#e6edf3}header{padding:32px 20px 0;text-align:center}main{max-width:880px;margin:0 auto;padding:0 20px 60px}h1{font-size:40px;margin:0 0 8px}p{color:#9fb3c8;margin:0 0 32px}.card{background:#121821;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:32px;box-shadow:0 10px 80px -40px rgba(96,165,250,.6)}form{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}.input{flex:1 1 320px;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0f1622;color:#e6edf3;font-size:16px}.btn{padding:14px 20px;border-radius:12px;border:0;background:linear-gradient(135deg,#3b82f6,#22d3ee);color:#0b1220;font-weight:600;cursor:pointer}.btn:disabled{opacity:.5}.result{display:none;margin-top:24px}.weakness{background:#0f1622;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;margin:12px 0}.badge{display:inline-block;padding:4px 8px;border-radius:999px;background:rgba(34,197,94,.15);color:#4ade80;font-size:12px;margin-left:8px}.link{color:#60a5fa;text-decoration:none}</style>
+</head>
+<body>
+  <header><h1>Free Website Audit</h1><p>Get a verifiable, no-fluff audit in seconds. Paste your website below.</p></header>
+  <main>
+    <div class="card">
+      <form id="form">
+        <input id="url" class="input" placeholder="https://yourwebsite.com" />
+        <button class="btn" type="submit">Run Free Audit</button>
+      </form>
+      <div id="result" class="result">
+        <h2>Findings <span id="verified" class="badge" style="display:none">Verified Faults Found</span></h2>
+        <div id="list"></div>
+        <p style="margin-top:24px">Share this report: <a id="share" class="link" target="_blank"></a></p>
+      </div>
+    </div>
+  </main>
+  <script>
+    const f=document.getElementById('form'),u=document.getElementById('url'),r=document.getElementById('result'),l=document.getElementById('list'),v=document.getElementById('verified'),s=document.getElementById('share');
+    f.addEventListener('submit',async e=>{
+      e.preventDefault();const url=u.value.trim();if(!url)return;
+      const b=f.querySelector('button');b.disabled=true;b.textContent='Auditing...';r.style.display='none';l.innerHTML='';
+      try{const res=await fetch('/api/audit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url})});const j=await res.json();
+        if(!j.success){alert(j.error||'Failed');return;}
+        const hasV=(j.weaknesses||[]).some(w=>w.evidence==='verified');
+        if(hasV)v.style.display='inline-block';else v.style.display='none';
+        (j.weaknesses||[]).forEach(w=>{const d=document.createElement('div');d.className='weakness';d.innerHTML=`<strong>${w.id.replace(/_/g,' ')}</strong> <span style="opacity:.6;font-size:12px">${w.evidence}</span><p>${w.detail}</p>`;l.appendChild(d);});
+        const link=`${location.origin}/reports/${j.token}`;s.href=link;s.textContent=link;r.style.display='block';
+      }catch(err){alert('Network error');}finally{b.disabled=false;b.textContent='Run Free Audit';}
+    });
+  </script>
+</body>
+</html>

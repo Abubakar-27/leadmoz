@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leadmoz Blog</title>
+    <link>https://leadmoz.com/blog</link>
+    <description>Guides on finding, verifying, and contacting local business leads &mdash; websites, email outreach, and prospecting, from the Leadmoz team.</description>
+    <language>en-us</language>
+    <atom:link href="https://leadmoz.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apollo Alternatives for Freelancers and Small Agencies (2026)</title>
+      <link>https://leadmoz.com/blog/apollo-alternatives-for-freelancers/</link>
+      <guid isPermaLink="true">https://leadmoz.com/blog/apollo-alternatives-for-freelancers/</guid>
+      <pubDate>Fri, 09 Oct 2026 09:00:00 GMT</pubDate>
+      <description>Looking for an Apollo alternative? Compare five lead-generation options for freelancers and small agencies targeting local businesses.</description>
+    </item>
+  </channel>
+</rss>

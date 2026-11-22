@@ -1,0 +1,42 @@
+{
+  "pages": [
+    {
+      "slug": "leadmoz-vs-apollo",
+      "status": "draft",
+      "competitor": "Apollo.io",
+      "competitorUrl": "https://www.apollo.io/",
+      "updated": "2026-10-09",
+      "title": "Leadmoz vs Apollo: Which Fits Local Lead Generation? (2026)",
+      "description": "Compare Leadmoz and Apollo for freelancers and small agencies: broad B2B sales intelligence versus niche-and-location prospecting for local businesses.",
+      "positioning": "Apollo is a broad B2B sales-intelligence and engagement platform. Leadmoz is a focused tool for finding local business prospects by niche and city and preparing personalized outreach around your service offer.",
+      "whoFor": "Choose Apollo if you prospect people at specific companies and want a large contact database with sales-engagement workflows. Choose Leadmoz if you sell services to local businesses and want to discover prospects by niche and location, then prepare a relevant pitch.",
+      "rows": [
+        { "dimension": "Best for", "ours": "Freelancers and agencies targeting local businesses by niche and city", "them": "B2B teams prospecting people at specific companies" },
+        { "dimension": "How you find prospects", "ours": "Search by business niche, location, and target count", "them": "Filter a large B2B contact and company database" },
+        { "dimension": "Contact data", "ours": "Public business website contacts with confidence scores", "them": "Large B2B contact database with enrichment" },
+        { "dimension": "Outreach help", "ours": "Drafts email, DM, and call openers from the prospect and your offer", "them": "Email sequences and sales-engagement tooling" },
+        { "dimension": "Free plan", "ours": "Yes, 5 leads per day", "them": "Yes, with limited usage and feature access" },
+        { "dimension": "Data export", "ours": "CSV export; leads are kept in the dashboard for 24 hours", "them": "Varies by plan; check the provider" }
+      ]
+    },
+    {
+      "slug": "leadmoz-vs-hunter-io",
+      "status": "draft",
+      "competitor": "Hunter.io",
+      "competitorUrl": "https://hunter.io/",
+      "updated": "2026-10-09",
+      "title": "Leadmoz vs Hunter.io: Find and Email Local Prospects (2026)",
+      "description": "Compare Leadmoz and Hunter.io for local service sellers: prospecting by niche and city versus finding and verifying professional email addresses you already know you need.",
+      "positioning": "Hunter.io is built around finding and verifying professional email addresses. Leadmoz starts earlier in the process, helping you discover local businesses by niche and location and prepare outreach.",
+      "whoFor": "Choose Hunter.io if you already have a list of target companies and need their email addresses. Choose Leadmoz if you need to discover which local businesses to contact in the first place, then prepare a personalized message.",
+      "rows": [
+        { "dimension": "Best for", "ours": "Local service prospecting by niche and city", "them": "Finding and verifying professional email addresses" },
+        { "dimension": "Starting point", "ours": "A niche, a location, and your offer", "them": "A domain or an existing company list" },
+        { "dimension": "Email finding", "ours": "Contacts collected from public business sites with confidence scores", "them": "Domain search, email finder, and verifier" },
+        { "dimension": "Outreach help", "ours": "Drafts email, DM, and call openers", "them": "Email sequences within a broader platform" },
+        { "dimension": "Best when", "ours": "You need discovery and outreach preparation in one flow", "them": "You have targets and mainly need their emails" },
+        { "dimension": "Free plan", "ours": "Yes, 5 leads per day", "them": "Free tier with limits; check the provider" }
+      ]
+    }
+  ]
+}
